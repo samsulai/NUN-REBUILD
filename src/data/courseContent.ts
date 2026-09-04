@@ -34,7 +34,7 @@ export const categoryContent: Record<Category, CategoryContent> = {
     description:
       "Delivered within Nile University's Faculty of Environmental Sciences, this programme combines design studios and technical coursework with site visits and practical projects, preparing students to plan, design, and deliver the built environment responsibly and sustainably.",
     careers:
-      "architectural and engineering design firms, construction and real estate development, urban planning agencies, and facilities management, with a path toward professional registration in Nigeria's built-environment institutes.",
+      "architectural and engineering design firms, construction and real estate development, urban planning agencies, and facilities management, with a path towards professional registration in Nigeria's built-environment institutes.",
   },
   media: {
     description:

@@ -32,7 +32,7 @@ function Contact() {
               Leave us your info
             </h2>
             <p className="mb-8 max-w-xl text-base leading-relaxed text-gray-500">
-              Have a question about admissions, programs, or campus life? Fill out the form
+              Have a question about admissions, programmes, or campus life? Fill out the form
               below and our team will get back to you as soon as possible.
             </p>
             <form onSubmit={(e) => e.preventDefault()} className="space-y-4">

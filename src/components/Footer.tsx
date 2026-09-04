@@ -90,7 +90,7 @@ function Footer() {
             <h4 className="mb-4 font-semibold text-white underline decoration-2 underline-offset-4">
               {col.title}
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-6">
               {col.links.map((link) => (
                 <li key={link.label} className="flex items-start gap-2">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-gold-light" />

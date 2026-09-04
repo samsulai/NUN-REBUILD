@@ -1,10 +1,18 @@
 import { useRef } from "react"
 import { Link } from "react-router-dom"
+import { ArrowRight } from "lucide-react"
 import Reveal from "./Reveal"
 
 const programs = [
   {
-    image: "/DSC00304-scaled.avif",
+    image: "/UTME-Screening-is-now-open-scaled.avif",
+    title: "School of Preliminary Studies",
+    description:
+      "A foundation year bridging secondary school and university, preparing students academically and personally.",
+    to: null,
+  },
+  {
+    image: "/ug2.jpeg",
     title: "Undergraduate",
     description:
       "Full-time bachelor's degrees across engineering, business, sciences, and the humanities, built for real-world readiness.",
@@ -18,15 +26,8 @@ const programs = [
     to: "/postgraduate",
   },
   {
-    image: "/UTME-Screening-is-now-open-scaled.avif",
-    title: "School of Preliminary Studies",
-    description:
-      "A foundation year bridging secondary school and university, preparing students academically and personally.",
-    to: null,
-  },
-  {
     image: "/nbs.jpg",
-    title: "Nile Business School",
+    title: "Executive Education",
     description:
       "Executive and specialised business education for professionals and entrepreneurs, blending industry practice with academic rigour.",
     to: null,
@@ -115,16 +116,18 @@ function Programs() {
                   {program.to ? (
                     <Link
                       to={program.to}
-                      className="inline-block self-start rounded border border-navy px-5 py-3 text-base font-medium text-navy transition-colors hover:bg-navy hover:text-white"
+                      className="group/link inline-flex items-center gap-1.5 self-start text-base font-bold text-navy transition-colors hover:text-gold"
                     >
-                      Learn more
+                      Explore
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" strokeWidth={2.25} />
                     </Link>
                   ) : (
                     <a
                       href="#"
-                      className="inline-block self-start rounded border border-navy px-5 py-3 text-base font-medium text-navy transition-colors hover:bg-navy hover:text-white"
+                      className="group/link inline-flex items-center gap-1.5 self-start text-base font-bold text-navy transition-colors hover:text-gold"
                     >
-                      Learn more
+                      Explore
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" strokeWidth={2.25} />
                     </a>
                   )}
                 </div>

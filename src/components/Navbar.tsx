@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Search, X } from "lucide-react"
 import logo from "../assets/nile-logo.svg"
 
 type DropdownLink = { label: string; to: string | null }
@@ -13,22 +13,22 @@ const aboutDropdown: Dropdown = {
     {
       heading: "Leadership & reports",
       links: [
-        { label: "Vice Chancellor's Welcome Message", to: null },
-        { label: "Organization Chart", to: null },
+        { label: "Vice Chancellor's Welcome Message", to: "/vice-chancellors-welcome" },
+        { label: "Organisation Chart", to: "/organisation-chart" },
         { label: "Principal Officers", to: "/principal-officers" },
-        { label: "Latest News & Events", to: null },
-        { label: "Employability Report", to: null },
-        { label: "Honoris Impact Report 2025", to: null },
+        { label: "Faculty Staff", to: null },
+        { label: "Employability Report", to: "/employability-report" },
+        { label: "Honoris Impact Report 2025", to: "/honoris-impact-report" },
       ],
     },
     {
       heading: "Community",
       links: [
         { label: "Honoris United Universities", to: null },
-        { label: "Alumni", to: null },
+        { label: "Alumni", to: "/alumni" },
         { label: "Nile Community", to: null },
-        { label: "TEDx Nile University", to: null },
-        { label: "Our Partners", to: null },
+        { label: "TEDx Nile University", to: "https://tedx.nileuniversity.edu.ng/" },
+        { label: "Our Partners", to: "/partners" },
         { label: "Virtual Tour", to: "/virtual-tour" },
       ],
     },
@@ -38,14 +38,13 @@ const aboutDropdown: Dropdown = {
 const studyDropdown: Dropdown = {
   columns: [
     {
-      heading: "Admissions & programs",
+      heading: "Admissions & programmes",
       links: [
         { label: "Screen Now (Undergraduate Screening Portal)", to: null },
         { label: "Apply Now (Postgraduate)", to: null },
         { label: "Undergraduate Courses", to: "/undergraduate" },
         { label: "Postgraduate Courses", to: "/postgraduate" },
         { label: "School of Preliminary Studies", to: null },
-        { label: "Executive Master of Business Administration (EMBA)", to: null },
         { label: "Nile Consult & Services Ltd.", to: null },
         { label: "Nile Online", to: null },
       ],
@@ -57,7 +56,7 @@ const studyDropdown: Dropdown = {
         { label: "Download Prospectus", to: null },
         { label: "Nile Welcome Booklet", to: null },
         { label: "Scholarships & Discounts", to: null },
-        { label: "Academic Calendar", to: null },
+        { label: "Academic Calendar", to: "/academic-calendar" },
         { label: "SIWES", to: null },
         { label: "Student Information System", to: null },
       ],
@@ -91,14 +90,15 @@ const links: NavLink[] = [
   { label: "About Nile", to: null, dropdown: aboutDropdown },
   { label: "Study & admissions", to: null, dropdown: studyDropdown },
   { label: "Campus Life", to: null, dropdown: studentLifeDropdown },
-  { label: "Research", to: null },
-  { label: "News & media", to: null },
+  { label: "News & media", to: "/news" },
   { label: "Contact us", to: "/contact" },
   { label: "Blog", to: "/blog" },
 ]
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [query, setQuery] = useState("")
 
   return (
     <header
@@ -146,26 +146,34 @@ function Navbar() {
                     {link.dropdown.columns.map((col) => (
                       <div key={col.heading} className="px-8 py-8">
                         <h3 className="mb-4 text-base font-bold text-navy">{col.heading}</h3>
-                        <ul className="space-y-5">
-                          {col.links.map((item) => (
-                            <li key={item.label}>
-                              {item.to ? (
-                                <Link
-                                  to={item.to}
-                                  className="not-italic font-normal text-[16px] leading-[28px] text-[#333435] hover:text-navy"
-                                >
-                                  {item.label}
-                                </Link>
-                              ) : (
-                                <a
-                                  href="#"
-                                  className="not-italic font-normal text-[16px] leading-[28px] text-[#333435] hover:text-navy"
-                                >
-                                  {item.label}
-                                </a>
-                              )}
-                            </li>
-                          ))}
+                        <ul className="space-y-6">
+                          {col.links.map((item) => {
+                            const linkClass =
+                              "not-italic font-normal text-[16px] leading-[28px] text-[#333435] hover:text-navy"
+                            const isExternal = item.to?.startsWith("http")
+                            return (
+                              <li key={item.label}>
+                                {isExternal ? (
+                                  <a
+                                    href={item.to as string}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={linkClass}
+                                  >
+                                    {item.label}
+                                  </a>
+                                ) : item.to ? (
+                                  <Link to={item.to} className={linkClass}>
+                                    {item.label}
+                                  </Link>
+                                ) : (
+                                  <a href="#" className={linkClass}>
+                                    {item.label}
+                                  </a>
+                                )}
+                              </li>
+                            )
+                          })}
                         </ul>
                       </div>
                     ))}
@@ -176,13 +184,51 @@ function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="#"
-          className="rounded bg-navy px-5 py-2.5 text-base font-medium text-white transition-all hover:scale-105 hover:bg-navy-light"
-        >
-          Apply now
-        </a>
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            aria-label={searchOpen ? "Close search" : "Open search"}
+            aria-expanded={searchOpen}
+            onClick={() => setSearchOpen((v) => !v)}
+            className="hidden text-navy transition-colors hover:text-gold lg:block"
+          >
+            {searchOpen ? (
+              <X className="h-[22px] w-[22px]" strokeWidth={2.5} />
+            ) : (
+              <Search className="h-[22px] w-[22px]" strokeWidth={2.5} />
+            )}
+          </button>
+
+          <a
+            href="#"
+            className="rounded bg-navy px-5 py-2.5 text-base font-medium text-white transition-all hover:scale-105 hover:bg-navy-light"
+          >
+            Apply now
+          </a>
+        </div>
       </div>
+
+      {searchOpen && (
+        <div className="animate-fade-in-up border-t border-gray-100 bg-white">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              setSearchOpen(false)
+            }}
+            className="mx-auto flex max-w-7xl items-center gap-3 px-6 py-4 md:px-10"
+          >
+            <Search className="h-5 w-5 shrink-0 text-gray-400" strokeWidth={1.75} />
+            <input
+              autoFocus
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search Nile University…"
+              className="w-full bg-transparent py-1 text-[17px] not-italic text-navy outline-none placeholder:text-gray-400"
+            />
+          </form>
+        </div>
+      )}
     </header>
   )
 }

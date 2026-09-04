@@ -82,7 +82,7 @@ function CourseDetail() {
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <Reveal>
             <h2 className="mb-4 text-xl font-semibold text-navy underline decoration-2 underline-offset-4">
-              Program Description
+              Programme Description
             </h2>
             <p className="text-base leading-relaxed text-gray-600">{content.description}</p>
           </Reveal>
@@ -90,11 +90,11 @@ function CourseDetail() {
           <Reveal delay={100}>
             <div className="rounded-lg bg-gray-50 p-6">
               <h2 className="mb-4 text-lg font-semibold text-navy underline decoration-2 underline-offset-4">
-                Program Details
+                Programme Details
               </h2>
               <dl className="mb-6 space-y-4 text-base">
                 <div>
-                  <dt className="font-semibold text-gray-800">Program Duration</dt>
+                  <dt className="font-semibold text-gray-800">Programme Duration</dt>
                   <dd className="text-gray-600">{course.duration} years</dd>
                 </div>
                 <div>

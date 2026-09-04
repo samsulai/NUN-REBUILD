@@ -7,16 +7,16 @@ const slides = [
     eyebrow: "Admissions open for the 2026/2027 academic year",
     title: "Shape your future at Nile University",
     description:
-      "A leading center of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
+      "A leading centre of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
     cta: { label: "Apply Now", href: "#" },
   },
   {
-    image: "/NUN02329-scaled.avif",
-    eyebrow: "Home to eight faculties and 100+ programs",
-    title: "Find the right program for you",
+    image: "/ug3.jpeg",
+    eyebrow: "Home to eight faculties and 100+ programmes",
+    title: "Find the right programme for you",
     description:
       "Explore undergraduate and postgraduate degrees across engineering, business, sciences, and the humanities.",
-    cta: { label: "Explore Programs", to: "/undergraduate" },
+    cta: { label: "Explore Programmes", to: "/undergraduate" },
   },
   {
     image: "/DSC08719-1.avif",
@@ -27,11 +27,11 @@ const slides = [
     cta: { label: "Take the Virtual Tour", to: "/virtual-tour" },
   },
   {
-    image: "/l3.jpeg",
+    image: "/ugnew.jpeg",
     eyebrow: "Questions before you apply?",
     title: "Let's help you get started",
     description:
-      "Our admissions team is ready to walk you through programs, requirements, and next steps.",
+      "Our admissions team is ready to walk you through programmes, requirements, and next steps.",
     cta: { label: "Contact Admissions", to: "/contact" },
   },
 ]
@@ -56,7 +56,7 @@ function Hero() {
         alt=""
         className="absolute inset-0 h-full w-full object-cover animate-kenburns"
       />
-      <div className="absolute inset-0 bg-black/66" />
+      <div className="absolute inset-0 bg-black/45" />
 
       <button
         onClick={prev}

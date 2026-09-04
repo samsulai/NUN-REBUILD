@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useInView } from "../hooks/useInView"
 
 const stats = [
-  { value: 13000, suffix: "+", label: "Students" },
+  { value: 13000, suffix: "+", label: "Alumni" },
   { value: 100, suffix: "+", label: "Degree programmes" },
   { value: 17, suffix: "+", label: "Years of excellence" },
   { value: 80, suffix: "%", label: "Employability rate" },

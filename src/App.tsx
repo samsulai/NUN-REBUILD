@@ -6,7 +6,15 @@ import CourseDetail from "./pages/CourseDetail"
 import Contact from "./pages/Contact"
 import VirtualTour from "./pages/VirtualTour"
 import Blog from "./pages/Blog"
+import NewsEvents from "./pages/NewsEvents"
 import PrincipalOfficers from "./pages/PrincipalOfficers"
+import ViceChancellorWelcome from "./pages/ViceChancellorWelcome"
+import OrganisationChart from "./pages/OrganisationChart"
+import EmployabilityReport from "./pages/EmployabilityReport"
+import HonorisImpactReport from "./pages/HonorisImpactReport"
+import Alumni from "./pages/Alumni"
+import Partners from "./pages/Partners"
+import AcademicCalendar from "./pages/AcademicCalendar"
 
 function App() {
   return (
@@ -20,7 +28,15 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="virtual-tour" element={<VirtualTour />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="news" element={<NewsEvents />} />
         <Route path="principal-officers" element={<PrincipalOfficers />} />
+        <Route path="vice-chancellors-welcome" element={<ViceChancellorWelcome />} />
+        <Route path="organisation-chart" element={<OrganisationChart />} />
+        <Route path="employability-report" element={<EmployabilityReport />} />
+        <Route path="honoris-impact-report" element={<HonorisImpactReport />} />
+        <Route path="alumni" element={<Alumni />} />
+        <Route path="partners" element={<Partners />} />
+        <Route path="academic-calendar" element={<AcademicCalendar />} />
       </Route>
     </Routes>
   )
