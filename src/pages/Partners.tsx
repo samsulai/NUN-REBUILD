@@ -61,7 +61,7 @@ function Partners() {
               <h2 className="text-[28px] font-semibold not-italic leading-tight text-navy md:text-[36px]">
                 {group.heading}
               </h2>
-              <span className="mt-3 block h-1 w-14 rounded bg-gold" />
+              <span className="mt-3 block h-1 w-14 bg-gold" />
               <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-gray-600">
                 {group.blurb}
               </p>

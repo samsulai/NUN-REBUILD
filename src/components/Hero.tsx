@@ -19,7 +19,7 @@ const slides = [
     cta: { label: "Explore Programmes", to: "/undergraduate" },
   },
   {
-    image: "/DSC08719-1.avif",
+    image: "/Nile-University-Boys-Hostel.avif",
     eyebrow: "See Nile before you apply",
     title: "Take a virtual tour of our campus",
     description:

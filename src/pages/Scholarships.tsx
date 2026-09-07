@@ -29,7 +29,7 @@ function PercentCard({
   detail: string
 }) {
   return (
-    <div className="flex h-full flex-col rounded-lg border border-gray-200 p-6">
+    <div className="flex h-full flex-col border border-gray-200 p-6">
       <span className="text-4xl font-extrabold text-gold">{percent}</span>
       <h4 className="mt-2 text-lg font-bold text-navy">{title}</h4>
       <p className="mt-2 text-[17px] leading-[25.5px] text-gray-600">{detail}</p>
@@ -39,7 +39,7 @@ function PercentCard({
 
 function Conditions({ items }: { items: string[] }) {
   return (
-    <details className="mt-6 rounded-lg border border-gray-200 [&_summary]:cursor-pointer">
+    <details className="mt-6 border border-gray-200 [&_summary]:cursor-pointer">
       <summary className="px-5 py-3 text-sm font-semibold text-navy marker:text-gold">
         Full eligibility conditions
       </summary>
@@ -89,7 +89,7 @@ function Scholarships() {
             <h3 className={subHeading}>Undergraduate programmes</h3>
             <p className={`mt-3 ${body}`}>{ugIntro}</p>
 
-            <div className="mt-6 overflow-hidden rounded-lg border border-gray-200">
+            <div className="mt-6 overflow-hidden border border-gray-200">
               <div className="bg-navy px-5 py-3 text-sm font-semibold text-white">
                 All undergraduate programmes except Law &amp; Medicine
               </div>
@@ -120,7 +120,7 @@ function Scholarships() {
               </table>
             </div>
 
-            <div className="mt-6 overflow-hidden rounded-lg border border-gray-200">
+            <div className="mt-6 overflow-hidden border border-gray-200">
               <table className="w-full text-left">
                 <thead>
                   <tr className="border-b border-gray-200 bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
@@ -172,7 +172,7 @@ function Scholarships() {
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <h2 className={sectionHeading}>Sport Scholarships</h2>
-            <div className="mt-6 flex flex-col gap-6 rounded-lg border border-gold/40 bg-white p-6 sm:flex-row sm:items-center">
+            <div className="mt-6 flex flex-col gap-6 border border-gold/40 bg-white p-6 sm:flex-row sm:items-center">
               <span className="text-5xl font-extrabold text-gold">100%</span>
               <p className={body}>{sportIntro}</p>
             </div>
@@ -209,7 +209,7 @@ function Scholarships() {
             </p>
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {siblingDiscount.map((row) => (
-                <div key={row.children} className="rounded-lg border border-gray-200 p-4 text-center">
+                <div key={row.children} className="border border-gray-200 p-4 text-center">
                   <span className="block text-2xl font-extrabold text-gold">
                     {row.discount}
                   </span>
@@ -233,7 +233,7 @@ function Scholarships() {
         <Reveal>
           <div className="mt-12">
             <h3 className={subHeading}>Postgraduate progression discount</h3>
-            <div className="mt-6 flex flex-col gap-4 rounded-lg border border-gray-200 p-6 sm:flex-row sm:items-center">
+            <div className="mt-6 flex flex-col gap-4 border border-gray-200 p-6 sm:flex-row sm:items-center">
               <span className="text-4xl font-extrabold text-gold">10%</span>
               <p className={body}>
                 Parents of current undergraduate or postgraduate students at NILE
@@ -254,7 +254,7 @@ function Scholarships() {
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {institutionDiscount.map((row) => (
-                <div key={row.applicants} className="rounded-lg border border-gray-200 p-4 text-center">
+                <div key={row.applicants} className="border border-gray-200 p-4 text-center">
                   <span className="block text-2xl font-extrabold text-gold">
                     {row.discount}
                   </span>

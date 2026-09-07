@@ -19,6 +19,7 @@ import Scholarships from "./pages/Scholarships"
 import Prospectus from "./pages/Prospectus"
 import WelcomeBooklet from "./pages/WelcomeBooklet"
 import TuitionFees from "./pages/TuitionFees"
+import Accommodation from "./pages/Accommodation"
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="prospectus" element={<Prospectus />} />
         <Route path="welcome-booklet" element={<WelcomeBooklet />} />
         <Route path="tuition-fees" element={<TuitionFees />} />
+        <Route path="student-accommodation" element={<Accommodation />} />
       </Route>
     </Routes>
   )

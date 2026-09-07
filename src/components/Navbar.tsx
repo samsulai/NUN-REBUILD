@@ -45,8 +45,8 @@ const studyDropdown: Dropdown = {
         { label: "Undergraduate Courses", to: "/undergraduate" },
         { label: "Postgraduate Courses", to: "/postgraduate" },
         { label: "School of Preliminary Studies", to: null },
-        { label: "Nile Consult & Services Ltd.", to: null },
-        { label: "Nile Online", to: null },
+        { label: "Nile Consult & Services Ltd.", to: "https://nileconsultservices.com/" },
+        { label: "Nile Online", to: "https://online.nileuniversity.edu.ng/" },
       ],
     },
     {
@@ -72,7 +72,7 @@ const studentLifeDropdown: Dropdown = {
         { label: "Virtual Tour", to: "/virtual-tour" },
         { label: "Student Experience", to: null },
         { label: "Student Welfare", to: null },
-        { label: "Student Accommodation", to: null },
+        { label: "Student Accommodation", to: "/student-accommodation" },
       ],
     },
     {

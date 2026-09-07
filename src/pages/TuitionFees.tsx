@@ -54,7 +54,7 @@ function LevelAccordion({
   }, [level.faculties, query, faculty])
 
   return (
-    <div className="border-b border-navy/20">
+    <div className="border border-navy/20">
       <button
         type="button"
         onClick={onToggle}
@@ -158,7 +158,7 @@ function TuitionFees() {
 
       <div className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-16">
         <Reveal>
-          <div className="border border-navy/20">
+          <div className="space-y-4">
             {tuitionFees.map((level, i) => (
               <LevelAccordion
                 key={level.level}
@@ -171,7 +171,7 @@ function TuitionFees() {
         </Reveal>
 
         <Reveal>
-          <div className="mt-10 rounded-lg bg-[#eef2fb] p-6">
+          <div className="mt-10 bg-[#eef2fb] p-6">
             <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-navy">
               Please note
             </h2>

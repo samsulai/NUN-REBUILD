@@ -20,9 +20,9 @@ const columns = [
       { label: "School of Preliminary Studies", to: null },
       { label: "Undergraduate Degrees", to: "/undergraduate" },
       { label: "Postgraduate Degrees", to: "/postgraduate" },
-      { label: "Nile Consult & Services Ltd.", to: null },
+      { label: "Nile Consult & Services Ltd.", to: "https://nileconsultservices.com/" },
       { label: "Nile Business School", to: null },
-      { label: "Nile Online", to: null },
+      { label: "Nile Online", to: "https://online.nileuniversity.edu.ng/" },
     ],
   },
   {
@@ -91,26 +91,34 @@ function Footer() {
               {col.title}
             </h4>
             <ul className="space-y-6">
-              {col.links.map((link) => (
-                <li key={link.label} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-gold-light" />
-                  {link.to ? (
-                    <Link
-                      to={link.to}
-                      className="not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href="#"
-                      className="not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
-                    >
-                      {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
+              {col.links.map((link) => {
+                const linkClass =
+                  "not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
+                const isExternal = link.to?.startsWith("http")
+                return (
+                  <li key={link.label} className="flex items-start gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-gold-light" />
+                    {isExternal ? (
+                      <a
+                        href={link.to as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {link.label}
+                      </a>
+                    ) : link.to ? (
+                      <Link to={link.to} className={linkClass}>
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href="#" className={linkClass}>
+                        {link.label}
+                      </a>
+                    )}
+                  </li>
+                )
+              })}
             </ul>
           </div>
         ))}

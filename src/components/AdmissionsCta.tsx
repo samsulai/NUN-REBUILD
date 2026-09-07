@@ -5,7 +5,7 @@ function AdmissionsCta() {
   return (
     <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden px-6 py-24 text-center md:min-h-[600px] md:px-10">
       <img
-        src="/UTME-Screening-is-now-open-scaled.avif"
+        src="/Nile-University-Boys-Hostel.avif"
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
       />
@@ -34,7 +34,7 @@ function AdmissionsCta() {
         </h2>
         <p className="text-[19px] font-medium not-italic leading-[32.3px] text-gray-200">
           From historic halls to modern labs, discover what makes Nile University feel like
-          home. This short video walks you through campus — one landmark at a time.
+          home. This short video walks you through campus, one landmark at a time.
         </p>
       </Reveal>
     </section>
