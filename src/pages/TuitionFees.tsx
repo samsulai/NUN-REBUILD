@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import Reveal from "../components/Reveal"
 import { tuitionFees, tuitionNotes, type TuitionCourse } from "../data/tuitionFees"
 
-const sectionHeading = "font-semibold not-italic text-[35px] leading-[50px] text-navy"
 const body = "font-normal text-[17px] leading-[25.5px] text-[#333435]"
 
 function CourseRow({ course }: { course: TuitionCourse }) {
