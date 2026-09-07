@@ -11,7 +11,6 @@ const tagStyles: Record<CalendarTag, string> = {
   Registration: "bg-gold text-white border-gold",
   Lectures: "bg-navy/10 text-navy border-navy/40",
   Holiday: "bg-gold/15 text-navy border-gold/50",
-  Milestone: "bg-white text-navy border-navy/40",
 }
 
 function EventRow({ event }: { event: CalendarEvent }) {
@@ -20,14 +19,16 @@ function EventRow({ event }: { event: CalendarEvent }) {
       <div className="w-full flex-shrink-0 text-sm font-bold text-navy sm:w-28">
         {event.date}
       </div>
-      <p className="flex-1 text-[15px] leading-relaxed text-gray-700">
+      <p className="flex-1 font-normal text-[17px] leading-[25.5px] text-gray-700">
         {event.label}
       </p>
-      <span
-        className={`inline-flex w-fit flex-shrink-0 items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${tagStyles[event.tag]}`}
-      >
-        {event.tag}
-      </span>
+      {event.tag && (
+        <span
+          className={`inline-flex w-fit flex-shrink-0 items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${tagStyles[event.tag]}`}
+        >
+          {event.tag}
+        </span>
+      )}
     </div>
   )
 }
@@ -49,7 +50,7 @@ function AcademicCalendar() {
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               Academic Calendar
             </h1>
-            <p className="mt-3 text-[17px] leading-[30px] text-gray-100">
+            <p className="mt-3 font-normal text-[17px] leading-[25.5px] text-gray-100">
               Undergraduate and Graduate Studies Academic Calendar (2025 – 2026)
             </p>
           </Reveal>

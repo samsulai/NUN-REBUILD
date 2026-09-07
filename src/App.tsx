@@ -15,6 +15,10 @@ import HonorisImpactReport from "./pages/HonorisImpactReport"
 import Alumni from "./pages/Alumni"
 import Partners from "./pages/Partners"
 import AcademicCalendar from "./pages/AcademicCalendar"
+import Scholarships from "./pages/Scholarships"
+import Prospectus from "./pages/Prospectus"
+import WelcomeBooklet from "./pages/WelcomeBooklet"
+import TuitionFees from "./pages/TuitionFees"
 
 function App() {
   return (
@@ -37,6 +41,10 @@ function App() {
         <Route path="alumni" element={<Alumni />} />
         <Route path="partners" element={<Partners />} />
         <Route path="academic-calendar" element={<AcademicCalendar />} />
+        <Route path="scholarships-discounts" element={<Scholarships />} />
+        <Route path="prospectus" element={<Prospectus />} />
+        <Route path="welcome-booklet" element={<WelcomeBooklet />} />
+        <Route path="tuition-fees" element={<TuitionFees />} />
       </Route>
     </Routes>
   )

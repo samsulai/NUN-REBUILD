@@ -52,10 +52,10 @@ const studyDropdown: Dropdown = {
     {
       heading: "Resources",
       links: [
-        { label: "Tuition Fees", to: null },
-        { label: "Download Prospectus", to: null },
-        { label: "Nile Welcome Booklet", to: null },
-        { label: "Scholarships & Discounts", to: null },
+        { label: "Tuition Fees", to: "/tuition-fees" },
+        { label: "Download Prospectus", to: "/prospectus" },
+        { label: "Nile Welcome Booklet", to: "/welcome-booklet" },
+        { label: "Scholarships & Discounts", to: "/scholarships-discounts" },
         { label: "Academic Calendar", to: "/academic-calendar" },
         { label: "SIWES", to: null },
         { label: "Student Information System", to: null },

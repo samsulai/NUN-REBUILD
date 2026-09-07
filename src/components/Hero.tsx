@@ -56,7 +56,8 @@ function Hero() {
         alt=""
         className="absolute inset-0 h-full w-full object-cover animate-kenburns"
       />
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/25" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
 
       <button
         onClick={prev}

@@ -10,7 +10,7 @@ function PartnerTile({ partner }: { partner: Partner }) {
           alt={partner.name}
           title={partner.name}
           loading="lazy"
-          className="max-h-20 max-w-[88%] object-contain opacity-80 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+          className="max-h-24 max-w-[90%] object-contain opacity-100 grayscale transition-all duration-300 group-hover:grayscale-0"
         />
       </div>
       <p className="line-clamp-2 min-h-[2rem] text-center text-xs leading-snug text-gray-500">

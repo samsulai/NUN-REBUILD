@@ -1,15 +1,10 @@
-export type CalendarTag =
-  | "Registration"
-  | "Lectures"
-  | "Exams"
-  | "Holiday"
-  | "Milestone"
+export type CalendarTag = "Registration" | "Lectures" | "Exams" | "Holiday"
 
 export type CalendarEvent = {
   date: string
   iso: string
   label: string
-  tag: CalendarTag
+  tag?: CalendarTag
 }
 
 export type CalendarMonth = {
@@ -30,15 +25,15 @@ export const academicCalendar: CalendarSemester[] = [
         month: "September 2025",
         events: [
           { date: "15th", iso: "2025-09-15", label: "Course Registration Begins (All Students – PG & UG)", tag: "Registration" },
-          { date: "25th", iso: "2025-09-25", label: "Senate Meeting", tag: "Milestone" },
-          { date: "29th", iso: "2025-09-29", label: "Resumption for 2025-2026 Academic Session", tag: "Milestone" },
+          { date: "25th", iso: "2025-09-25", label: "Senate Meeting" },
+          { date: "29th", iso: "2025-09-29", label: "Resumption for 2025-2026 Academic Session" },
         ],
       },
       {
         month: "October 2025",
         events: [
           { date: "6th", iso: "2025-10-06", label: "Lecture Begins (All Students – PG & UG)", tag: "Lectures" },
-          { date: "20th – 24th", iso: "2025-10-20", label: "Freshers Orientation Week", tag: "Milestone" },
+          { date: "20th – 24th", iso: "2025-10-20", label: "Freshers Orientation Week" },
           { date: "27th", iso: "2025-10-27", label: "Add and Drop Week / Late Registration Begins (All Students – PG & UG)", tag: "Registration" },
         ],
       },
@@ -46,8 +41,8 @@ export const academicCalendar: CalendarSemester[] = [
         month: "November 2025",
         events: [
           { date: "7th", iso: "2025-11-07", label: "Late Registration Ends (All Students – PG & UG)", tag: "Registration" },
-          { date: "13th", iso: "2025-11-13", label: "Senate Meeting", tag: "Milestone" },
-          { date: "18th – 20th", iso: "2025-11-18", label: "Convocation Ceremony", tag: "Milestone" },
+          { date: "13th", iso: "2025-11-13", label: "Senate Meeting" },
+          { date: "18th – 20th", iso: "2025-11-18", label: "Convocation Ceremony" },
           { date: "24th", iso: "2025-11-24", label: "Midterm Examination Begins (PG & UG) (8th & 9th Week)", tag: "Exams" },
         ],
       },
@@ -62,7 +57,7 @@ export const academicCalendar: CalendarSemester[] = [
       {
         month: "January 2026",
         events: [
-          { date: "5th", iso: "2026-01-05", label: "Resumption from End of Year Break", tag: "Milestone" },
+          { date: "5th", iso: "2026-01-05", label: "Resumption from End of Year Break" },
           { date: "30th", iso: "2026-01-30", label: "Lecture Ends (All Students – PG & UG) – 15 weeks", tag: "Lectures" },
         ],
       },
@@ -80,7 +75,7 @@ export const academicCalendar: CalendarSemester[] = [
     months: [
       {
         month: "January 2026",
-        events: [{ date: "26th", iso: "2026-01-26", label: "Matriculation", tag: "Milestone" }],
+        events: [{ date: "26th", iso: "2026-01-26", label: "Matriculation" }],
       },
       {
         month: "February 2026",
@@ -124,7 +119,7 @@ export const academicCalendar: CalendarSemester[] = [
           { date: "13th", iso: "2026-07-13", label: "Second Intake Lectures Begins", tag: "Lectures" },
           { date: "17th", iso: "2026-07-17", label: "Second Intake – Second Semester / LVS Registration Ends", tag: "Registration" },
           { date: "20th", iso: "2026-07-20", label: "Long Vacation School (LVS) Lecture Begins", tag: "Lectures" },
-          { date: "23rd", iso: "2026-07-23", label: "Senate Meeting", tag: "Milestone" },
+          { date: "23rd", iso: "2026-07-23", label: "Senate Meeting" },
         ],
       },
       {

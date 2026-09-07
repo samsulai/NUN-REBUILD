@@ -27,7 +27,7 @@ function PdfReportPage({
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               {title}
             </h1>
-            <p className="mt-4 max-w-2xl text-[17px] leading-[30px] text-gray-100">
+            <p className="mt-4 max-w-2xl font-normal text-[17px] leading-[25.5px] text-gray-100">
               {description}
             </p>
           </Reveal>

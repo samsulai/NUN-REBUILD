@@ -61,7 +61,7 @@ function Stats() {
   const { ref, inView } = useInView<HTMLDivElement>()
 
   return (
-    <section className="bg-sand px-6 py-14 text-center md:px-10">
+    <section className="bg-[#eef2fb] px-6 py-14 text-center md:px-10">
       <h2 className="mb-8 text-[48px] font-semibold not-italic leading-[48px] text-navy">
         Our achievements at a glance
       </h2>
