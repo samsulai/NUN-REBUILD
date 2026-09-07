@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { Outlet, useLocation } from "react-router-dom"
+import AnnouncementBar from "./AnnouncementBar"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 
@@ -12,6 +13,7 @@ function Layout() {
 
   return (
     <main className="min-h-screen bg-white">
+      <AnnouncementBar />
       <Navbar />
       <Outlet />
       <Footer />

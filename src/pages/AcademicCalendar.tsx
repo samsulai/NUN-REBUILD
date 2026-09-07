@@ -7,12 +7,11 @@ import {
 } from "../data/academicCalendar"
 
 const tagStyles: Record<CalendarTag, string> = {
-  Registration: "bg-gold/10 text-gold border-gold/30",
-  Lectures: "bg-navy/10 text-navy border-navy/30",
-  Exams: "bg-red-50 text-red-700 border-red-200",
-  Holiday: "bg-amber-50 text-amber-700 border-amber-200",
-  Milestone: "bg-purple-50 text-purple-700 border-purple-200",
-  Admin: "bg-gray-100 text-gray-600 border-gray-200",
+  Exams: "bg-navy text-white border-navy",
+  Registration: "bg-gold text-white border-gold",
+  Lectures: "bg-navy/10 text-navy border-navy/40",
+  Holiday: "bg-gold/15 text-navy border-gold/50",
+  Milestone: "bg-white text-navy border-navy/40",
 }
 
 function EventRow({ event }: { event: CalendarEvent }) {
@@ -59,7 +58,7 @@ function AcademicCalendar() {
 
       <div className="mx-auto max-w-4xl px-6 py-12 md:px-10 md:py-16">
         <Reveal>
-          <div className="flex overflow-hidden rounded-lg border border-gray-200">
+          <div className="flex border border-gray-200">
             {academicCalendar.map((s, i) => (
               <button
                 key={s.heading}
