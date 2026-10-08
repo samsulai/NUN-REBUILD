@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Zainab Bello",
     programme: "B.Sc. Business Administration",
-    poster: "/ug3.jpeg",
+    poster: "/hero-undergrad-group.webp",
     videoUrl: "",
   },
   {

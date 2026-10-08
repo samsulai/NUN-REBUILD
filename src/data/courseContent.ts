@@ -89,7 +89,7 @@ export function getFaqs(level: Level) {
       question: "What are the entry requirements?",
       answer:
         level === "undergraduate"
-          ? "A minimum of five (5) O'Level credits in WAEC, NECO, or NABTEB — including English Language and Mathematics — obtained in not more than two sittings, plus a UTME score that meets Nile University's cut-off (typically 160 and above) with Nile listed as your first choice. Admission is also subject to the university's Post-UTME screening. Exact UTME subject combinations vary by department — contact admissions to confirm the combination for this programme."
+          ? "A minimum of five (5) O'Level credits in WAEC, NECO, or NABTEB (including English Language and Mathematics), obtained in not more than two sittings, plus a UTME score that meets Nile University's cut-off (typically 160 and above) with Nile listed as your first choice. Admission is also subject to the university's Post-UTME screening. Exact UTME subject combinations vary by department, so contact admissions to confirm the combination for this programme."
           : "A minimum of a second-class lower degree (or equivalent) in a relevant field from a recognised university, along with any additional departmental requirements. Contact Nile University's School of Postgraduate Studies to confirm the specific requirements for this programme.",
     },
     {

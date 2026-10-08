@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Download, ExternalLink, Loader2 } from "lucide-react"
 import Reveal from "./Reveal"
-import FlipbookViewer from "./FlipbookViewer"
 
 function EmailGate({
   reportLabel,
@@ -33,12 +32,15 @@ function EmailGate({
   }
 
   return (
-    <div className="mx-auto max-w-md rounded-lg border border-gray-200 bg-sand px-8 py-10 text-center">
-      <h2 className="text-xl font-bold text-navy">Get instant access</h2>
-      <p className="mt-2 text-[15px] leading-relaxed text-gray-600">
-        Enter your details to view and download the {reportLabel}.
+    <div className="max-w-2xl">
+      <h2 className="text-[32px] font-extrabold uppercase tracking-wide text-navy md:text-[40px]">
+        Request your copy
+      </h2>
+      <p className="mt-4 text-[19px] leading-[30px] text-gray-500">
+        Tell us your name and email, and we'll open up the {reportLabel} for you right away. No
+        waiting, no spam.
       </p>
-      <form onSubmit={handleSubmit} className="mt-6 space-y-3 text-left">
+      <form onSubmit={handleSubmit} className="mt-8 space-y-5">
         <label className="block">
           <span className="sr-only">Full name</span>
           <input
@@ -47,7 +49,7 @@ function EmailGate({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Full Name*"
-            className="w-full rounded border-none bg-white px-5 py-3.5 text-base text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
+            className="w-full rounded border-none bg-white px-6 py-5 text-[19px] text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
           />
         </label>
         <label className="block">
@@ -58,17 +60,17 @@ function EmailGate({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email*"
-            className="w-full rounded border-none bg-white px-5 py-3.5 text-base text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
+            className="w-full rounded border-none bg-white px-6 py-5 text-[19px] text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
           />
         </label>
         <button
           type="submit"
           disabled={submitting}
-          className="flex w-full items-center justify-center gap-2 rounded bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-light disabled:opacity-60"
+          className="flex items-center justify-center gap-2 rounded bg-gold px-9 py-5 text-[18px] font-semibold uppercase tracking-wide text-white transition-colors hover:bg-gold-light disabled:opacity-60"
         >
           {submitting ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <Loader2 className="h-5 w-5 animate-spin" />
               Please wait…
             </>
           ) : (
@@ -76,7 +78,7 @@ function EmailGate({
           )}
         </button>
       </form>
-      <p className="mt-4 text-[15px] leading-relaxed text-gray-500">
+      <p className="mt-7 max-w-xl text-[16px] leading-[26px] text-gray-400">
         By submitting your prospectus request, please be aware that the information you have
         provided will be used to create a record within our enquiry system. You can find more
         information on how we process your personal data within our{" "}
@@ -102,7 +104,6 @@ function PdfReportPage({
   fileSize,
   requireEmail,
   leadEndpoint,
-  flipbook,
 }: {
   title: string
   description: string
@@ -111,7 +112,6 @@ function PdfReportPage({
   fileSize: string
   requireEmail?: boolean
   leadEndpoint?: string
-  flipbook?: boolean
 }) {
   const storageKey = `lead-unlocked:${pdfSrc}`
   const [unlocked, setUnlocked] = useState(() => {
@@ -152,9 +152,7 @@ function PdfReportPage({
         </div>
       </div>
 
-      <div
-        className={`mx-auto px-6 py-14 md:px-10 md:py-20 ${flipbook ? "max-w-6xl" : "max-w-5xl"}`}
-      >
+      <div className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20">
         {!unlocked && requireEmail && leadEndpoint ? (
           <Reveal>
             <EmailGate reportLabel={reportLabel} leadEndpoint={leadEndpoint} onUnlock={handleUnlock} />
@@ -184,36 +182,30 @@ function PdfReportPage({
               </div>
             </div>
 
-            {flipbook ? (
-              <FlipbookViewer pdfSrc={pdfSrc} reportLabel={reportLabel} />
-            ) : (
-              <>
-                {/* Desktop / tablet: inline viewer */}
-                <div className="hidden overflow-hidden rounded-lg border border-gray-200 shadow-sm sm:block">
-                  <iframe
-                    src={`${pdfSrc}#view=FitH`}
-                    title={reportLabel}
-                    className="h-[80vh] w-full"
-                  />
-                </div>
+            {/* Desktop / tablet: inline viewer */}
+            <div className="hidden overflow-hidden rounded-lg border border-gray-200 shadow-sm sm:block">
+              <iframe
+                src={`${pdfSrc}#view=FitH`}
+                title={reportLabel}
+                className="h-[80vh] w-full"
+              />
+            </div>
 
-                {/* Mobile: viewer is unreliable, offer a clear entry point */}
-                <a
-                  href={pdfSrc}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-3 rounded-lg border border-gray-200 bg-sand px-6 py-12 text-center sm:hidden"
-                >
-                  <ExternalLink className="h-8 w-8 text-navy" strokeWidth={1.75} />
-                  <span className="text-base font-semibold text-navy">
-                    View the {reportLabel}
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    Opens the PDF in your browser ({fileSize})
-                  </span>
-                </a>
-              </>
-            )}
+            {/* Mobile: viewer is unreliable, offer a clear entry point */}
+            <a
+              href={pdfSrc}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-3 rounded-lg border border-gray-200 bg-sand px-6 py-12 text-center sm:hidden"
+            >
+              <ExternalLink className="h-8 w-8 text-navy" strokeWidth={1.75} />
+              <span className="text-base font-semibold text-navy">
+                View the {reportLabel}
+              </span>
+              <span className="text-sm text-gray-500">
+                Opens the PDF in your browser ({fileSize})
+              </span>
+            </a>
           </Reveal>
         )}
       </div>

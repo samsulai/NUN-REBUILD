@@ -3,20 +3,6 @@ import { Link } from "react-router-dom"
 
 const slides = [
   {
-    image: "/sfjigh8hgngjg.avif",
-    title: "Shape your future at Nile University",
-    description:
-      "A leading centre of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
-    cta: { label: "Apply Now", href: "#" },
-  },
-  {
-    image: "/ug3.jpeg",
-    title: "Find the right programme for you",
-    description:
-      "Explore undergraduate and postgraduate degrees across engineering, business, sciences, and the humanities.",
-    cta: { label: "Explore Programmes", to: "/undergraduate" },
-  },
-  {
     image: "/campus-aerial.webp",
     title: "Take a virtual tour of our campus",
     description:
@@ -24,7 +10,21 @@ const slides = [
     cta: { label: "Take the Virtual Tour", to: "/virtual-tour" },
   },
   {
-    image: "/ugnew.jpeg",
+    image: "/sfjigh8hgngjg.avif",
+    title: "Shape your future at Nile University",
+    description:
+      "A leading centre of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
+    cta: { label: "Apply Now", href: "#" },
+  },
+  {
+    image: "/hero-undergrad-group.webp",
+    title: "Find the right programme for you",
+    description:
+      "Explore undergraduate and postgraduate degrees across engineering, business, sciences, and the humanities.",
+    cta: { label: "Explore Programmes", to: "/undergraduate" },
+  },
+  {
+    image: "/hero-campus-students.webp",
     title: "Let's help you get started",
     description:
       "Our admissions team is ready to walk you through programmes, requirements, and next steps.",

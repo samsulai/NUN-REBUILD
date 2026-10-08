@@ -41,12 +41,12 @@ function ViceChancellorWelcome() {
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
           <Reveal>
-            <div className="space-y-6 text-[19px] leading-[30px] text-gray-600">
+            <div className="space-y-6 text-[19px] leading-[30px] text-[#333435]">
               {messageParagraphs.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}
               <p className="pt-2 text-lg font-semibold italic text-navy">
-                — Prof. Dilli Dogo
+                Prof. Dilli Dogo
               </p>
             </div>
           </Reveal>
@@ -81,7 +81,7 @@ function ViceChancellorWelcome() {
             </span>
           </Reveal>
           <Reveal delay={120}>
-            <div className="max-w-3xl space-y-5 text-[19px] leading-[30px] italic text-gray-600 md:pt-6">
+            <div className="max-w-3xl space-y-5 text-[19px] leading-[30px] italic text-[#333435] md:pt-6">
               {philosophy.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}

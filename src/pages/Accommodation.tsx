@@ -17,7 +17,7 @@ type Basis = "semester" | "session"
 
 const sectionHeading =
   "font-semibold not-italic text-[35px] leading-[42px] text-navy md:text-[38px] md:leading-[46px]"
-const eyebrow = "mb-2 text-[13px] font-bold uppercase tracking-widest text-[#45703b]"
+const eyebrow = "mb-2 text-[13px] font-bold uppercase tracking-widest text-gold"
 const body = "font-normal text-[19px] leading-[30px] text-[#333435]"
 
 const videoId = hostelVideoUrl.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/)?.[1]
@@ -134,8 +134,8 @@ function Accommodation() {
             </table>
           </div>
 
-          <p className="mt-5 flex items-start gap-3 border-l-4 border-[#45703b] bg-[#eef6ea] px-5 py-4 text-[16px] leading-[25px] text-[#333435]">
-            <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#45703b]" strokeWidth={2.5} />
+          <p className="mt-5 flex items-start gap-3 border-l-4 border-gold bg-[#eef6ea] px-5 py-4 text-[16px] leading-[25px] text-[#333435]">
+            <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" strokeWidth={2.5} />
             {accommodationNote}
           </p>
         </Reveal>

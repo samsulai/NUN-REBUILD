@@ -85,7 +85,7 @@ function Contact() {
             <h2 className="mb-4 text-2xl font-extrabold uppercase tracking-wide text-navy md:text-3xl">
               Location
             </h2>
-            <p className="mb-6 text-[19px] leading-[30px] text-gray-600">
+            <p className="mb-6 text-[19px] leading-[30px] text-gray-500">
               Plot 681, Cadastral Zone C-OO, Research &amp; Institution Area, Jabi Airport
               Bypass, Abuja FCT, Nigeria.
             </p>

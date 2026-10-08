@@ -17,7 +17,7 @@ export const aLevelScale = [
 ]
 
 export const ugConditions = [
-  "The “A” grades must be achieved in Mathematics, English, and the subjects directly related (core) to the applicant’s chosen degree programme. For example, in B.Eng. Electrical & Electronics Engineering the “A” grades must — in addition to Maths and English — be achieved in Physics, etc.",
+  "The “A” grades must be achieved in Mathematics, English, and the subjects directly related (core) to the applicant’s chosen degree programme. For example, in B.Eng. Electrical & Electronics Engineering the “A” grades must, in addition to Maths and English, be achieved in Physics, etc.",
   "External examination results for WAEC & NECO are not acceptable.",
   "Only JAMB and O’Level results from the academic year in which admission is offered will be accepted. Results from previous years, or combinations of results from different academic years, are not allowed.",
 ]
@@ -79,7 +79,7 @@ export const institutionDiscount = [
 export const beforeYouApply = [
   "Applicants cannot be considered for discounts or scholarships under more than one criterion. Where an applicant is eligible under multiple conditions, they must apply under the option offering the highest discount or scholarship. There are no substitutes thereafter.",
   "In addition to meeting the eligibility criteria, applicants must apply for a discount or scholarship to be considered.",
-  "Applications are valid only at the point of entry — discounts and scholarships are not applied retrospectively.",
+  "Applications are valid only at the point of entry. Discounts and scholarships are not applied retrospectively.",
   "Discounts and scholarships do not apply to hostel fees.",
   "All discounts and scholarships are limited to quotas decided by the Management of NILE, on a first-come, first-served basis.",
 ]

@@ -64,14 +64,6 @@ function DisclaimerModal() {
             className="block max-h-[55vh] w-auto max-w-full"
           />
         </div>
-        <a
-          href="/disclaimer.webp"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 block text-center text-[14px] text-white/90 underline underline-offset-4 hover:text-white"
-        >
-          View full size
-        </a>
       </div>
     </div>
   )

@@ -71,7 +71,7 @@ function Partners() {
               }
             >
               <div className="px-6 py-8">
-                <p className="max-w-3xl text-[15px] leading-relaxed text-gray-600">
+                <p className="max-w-3xl text-[15px] leading-relaxed text-[#333435]">
                   {group.blurb}
                 </p>
 

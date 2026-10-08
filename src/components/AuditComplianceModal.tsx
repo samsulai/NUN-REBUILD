@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import { X } from "lucide-react"
 
 const altText =
-  "Nile University of Nigeria Ltd — NDPR Audit Compliant 2024 trustmark, issued by the Nigeria Data Protection Commission."
+  "Nile University of Nigeria Ltd: NDPR Audit Compliant 2024 trustmark, issued by the Nigeria Data Protection Commission."
 
 function AuditComplianceModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null)

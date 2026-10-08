@@ -48,7 +48,7 @@ function VideoModal({
           {embed ? (
             <iframe
               src={embed}
-              title={`${testimonial.name} — ${testimonial.programme}`}
+              title={`${testimonial.name} (${testimonial.programme})`}
               className="h-full w-full"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen

@@ -70,7 +70,7 @@ function CoursesList({ level }: { level: Level }) {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-10">
-        <p className="mb-3 text-base text-gray-600">
+        <p className="mb-3 text-base text-gray-500">
           List of {label} courses available at Nile University:
         </p>
         <input

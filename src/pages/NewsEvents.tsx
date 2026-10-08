@@ -46,7 +46,7 @@ function NewsEvents() {
                   {featured.title}
                 </a>
               </h2>
-              <p className="mb-8 line-clamp-4 text-[19px] leading-[30px] text-gray-600">
+              <p className="mb-8 line-clamp-4 text-[19px] leading-[30px] text-[#333435]">
                 {featured.excerpt}
               </p>
               <p className="text-base font-bold uppercase tracking-wide text-gray-900">

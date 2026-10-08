@@ -18,7 +18,7 @@ import {
 const sectionHeading =
   "font-semibold not-italic text-[35px] leading-[50px] text-navy"
 const subHeading = "text-lg font-bold uppercase tracking-wide text-navy"
-const body = "font-normal text-[19px] leading-[30px] text-gray-600"
+const body = "font-normal text-[19px] leading-[30px] text-[#333435]"
 
 function PercentCard({
   percent,
@@ -33,7 +33,7 @@ function PercentCard({
     <div className="flex h-full flex-col border border-gray-200 p-6">
       <span className="text-4xl font-extrabold text-gold">{percent}</span>
       <h4 className="mt-2 text-lg font-bold text-navy">{title}</h4>
-      <p className="mt-2 text-[19px] leading-[30px] text-gray-600">{detail}</p>
+      <p className="mt-2 text-[19px] leading-[30px] text-[#333435]">{detail}</p>
     </div>
   )
 }
@@ -44,7 +44,7 @@ function Conditions({ items }: { items: string[] }) {
       <Accordion title="Full eligibility conditions">
         <ul className="space-y-3 px-6 py-5">
           {items.map((item) => (
-            <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-gray-600">
+            <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-[#333435]">
               <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
               {item}
             </li>
@@ -183,7 +183,7 @@ function Scholarships() {
               <h3 className={subHeading}>Guidelines</h3>
               <ul className="mt-4 space-y-3">
                 {sportGuidelines.map((item) => (
-                  <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-gray-600">
+                  <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-[#333435]">
                     <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
                     {item}
                   </li>
@@ -275,7 +275,7 @@ function Scholarships() {
             <h2 className={sectionHeading}>Before you apply</h2>
             <ul className="mt-6 space-y-4">
               {beforeYouApply.map((item) => (
-                <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-gray-600">
+                <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-[#333435]">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-navy" />
                   {item}
                 </li>

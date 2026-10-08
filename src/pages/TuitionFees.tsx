@@ -199,7 +199,7 @@ function TuitionFees() {
               ))}
               <li className={`flex gap-3 ${body}`}>
                 <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-navy" />
-                Scholarships and discounts may reduce these fees —{" "}
+                Scholarships and discounts may reduce these fees:{" "}
                 <Link to="/scholarships-discounts" className="font-semibold text-navy underline">
                   see what you may qualify for
                 </Link>

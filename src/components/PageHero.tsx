@@ -28,7 +28,7 @@ function PageHero({
             {title}
           </h1>
           {description && (
-            <p className="max-w-2xl text-[19px] leading-[30px] text-gray-600">{description}</p>
+            <p className="max-w-2xl text-[19px] leading-[30px] text-[#333435]">{description}</p>
           )}
         </Reveal>
       </div>

@@ -137,7 +137,7 @@ function SchoolOfPreliminaryStudies() {
 
         <div className="mt-14 grid gap-10 md:grid-cols-2 md:items-center">
           <img
-            src="/ugnew.jpeg"
+            src="/hero-campus-students.webp"
             alt="School of Preliminary Studies students on campus"
             className="h-80 w-full object-cover"
           />
@@ -178,7 +178,7 @@ function SchoolOfPreliminaryStudies() {
             <h2 className="text-[32px] font-bold leading-[38px] text-navy md:text-[40px] md:leading-[46px]">
               Programme Structure
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-[16px] leading-[25px] text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-[16px] leading-[25px] text-gray-500">
               In addition to some compulsory courses which they would be exposed to, students
               are required to choose three subjects relevant to their intended degree programme.
             </p>

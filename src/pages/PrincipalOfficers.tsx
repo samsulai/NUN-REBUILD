@@ -127,7 +127,7 @@ function OfficerModal({
             <h2 className="text-2xl font-bold text-navy">{officer.name}</h2>
             <p className="mt-1 text-base text-gold">{officer.title}</p>
             <span className="mt-3 block h-1 w-12 rounded bg-gold" />
-            <div className="mt-5 space-y-4 font-normal text-[16px] leading-[32px] text-gray-600">
+            <div className="mt-5 space-y-4 font-normal text-[16px] leading-[32px] text-[#333435]">
               {officer.bio.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}

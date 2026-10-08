@@ -70,7 +70,7 @@ export const partnerGroups: PartnerGroup[] = [
       { name: "National Agency for Science and Engineering Infrastructure (NASENI)", logo: "/partners/naseni-logo.webp" },
       { name: "Development Bank of Nigeria (DBN)", logo: "/partners/dbn-logo.webp" },
       { name: "Campus France Nigeria", logo: "/partners/campusfrance-logo.webp" },
-      { name: "EducationUSA — U.S. Embassy Nigeria", logo: "/partners/educationusa-logo.webp" },
+      { name: "EducationUSA (U.S. Embassy Nigeria)", logo: "/partners/educationusa-logo.webp" },
     ],
   },
 ]

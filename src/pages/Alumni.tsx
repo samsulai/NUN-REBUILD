@@ -80,7 +80,7 @@ function Alumni() {
       {/* Intro */}
       <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 md:py-16">
         <Reveal>
-          <p className="text-[17px] leading-[34px] text-gray-600">{alumniIntro}</p>
+          <p className="text-[17px] leading-[34px] text-[#333435]">{alumniIntro}</p>
         </Reveal>
       </div>
 
@@ -97,7 +97,7 @@ function Alumni() {
               <Reveal key={item.title} delay={(i % 2) * 100}>
                 <div>
                   <h3 className="mb-3 text-xl font-bold text-navy">{item.title}</h3>
-                  <p className="text-[15px] leading-[28px] text-gray-600">
+                  <p className="text-[15px] leading-[28px] text-[#333435]">
                     {item.body}
                   </p>
                 </div>
