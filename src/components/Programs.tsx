@@ -1,6 +1,6 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
-import { ArrowRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import Reveal from "./Reveal"
 
 const programs = [
@@ -8,34 +8,63 @@ const programs = [
     image: "/UTME-Screening-is-now-open-scaled.avif",
     title: "School of Preliminary Studies",
     description:
-      "A foundation year bridging secondary school and university, preparing students academically and personally.",
-    to: null,
+      "Become equipped for success in A-level exams and unlock a pathway to 200-level direct entry admission.",
+    to: "/sps",
   },
   {
-    image: "/ug2.jpeg",
+    image: "/students-group.webp",
+    imagePosition: "center 15%",
     title: "Undergraduate",
     description:
-      "Full-time bachelor's degrees across engineering, business, sciences, and the humanities, built for real-world readiness.",
+      "Join our lively community of undergraduate students and choose from more than 50 degree options.",
     to: "/undergraduate",
   },
   {
     image: "/kdqcmr9vp8hfuf.jpg",
     title: "Postgraduate",
     description:
-      "Postgraduate diploma, master's, and doctoral programmes for professionals and researchers looking to deepen their expertise and impact.",
+      "Advance your academic and professional journey through specialized postgraduate programmes.",
     to: "/postgraduate",
   },
   {
-    image: "/nbs.jpg",
+    image: "/exec-education.webp",
     title: "Executive Education",
     description:
       "Executive and specialised business education for professionals and entrepreneurs, blending industry practice with academic rigour.",
-    to: null,
+    to: "https://online.nileuniversity.edu.ng/nile-business-school/",
   },
 ]
 
+const accentColors = ["#e1ad02", "#1b4e9e", "#75b947", "#ed2777"]
+
+const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+
 function Programs() {
   const trackRef = useRef<HTMLDivElement>(null)
+  const frameRef = useRef(0)
+
+  const applyDepth = () => {
+    const track = trackRef.current
+    if (!track) return
+    const t = track.getBoundingClientRect()
+    track.querySelectorAll<HTMLElement>("[data-card]").forEach((card) => {
+      const c = card.getBoundingClientRect()
+      const visible = Math.max(0, Math.min(c.right, t.right) - Math.max(c.left, t.left))
+      const fraction = Math.min(1, visible / c.width)
+      card.style.opacity = String(0.35 + 0.65 * fraction)
+      card.style.scale = String(0.94 + 0.06 * fraction)
+    })
+  }
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    applyDepth()
+    window.addEventListener("resize", applyDepth)
+    return () => {
+      window.removeEventListener("resize", applyDepth)
+      cancelAnimationFrame(frameRef.current)
+    }
+  }, [])
 
   const slide = (direction: 1 | -1) => {
     const track = trackRef.current
@@ -43,7 +72,30 @@ function Programs() {
     const card = track.children[0] as HTMLElement | undefined
     const gap = 32
     const step = card ? card.getBoundingClientRect().width + gap : track.clientWidth
-    track.scrollBy({ left: direction * step, behavior: "smooth" })
+    const max = track.scrollWidth - track.clientWidth
+    const from = track.scrollLeft
+    const to = Math.min(Math.max(from + direction * step, 0), max)
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      track.scrollTo({ left: to })
+      return
+    }
+
+    cancelAnimationFrame(frameRef.current)
+    track.style.scrollSnapType = "none"
+    const duration = 750
+    const start = performance.now()
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1)
+      track.scrollLeft = from + (to - from) * easeInOutCubic(progress)
+      applyDepth()
+      if (progress < 1) {
+        frameRef.current = requestAnimationFrame(tick)
+      } else {
+        track.style.scrollSnapType = ""
+      }
+    }
+    frameRef.current = requestAnimationFrame(tick)
   }
 
   return (
@@ -90,7 +142,8 @@ function Programs() {
         </Reveal>
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          onScroll={applyDepth}
+          className="flex snap-x snap-mandatory gap-8 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {programs.map((program, i) => (
             <Reveal
@@ -98,28 +151,42 @@ function Programs() {
               delay={i * 100}
               className="w-full shrink-0 snap-start sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]"
             >
-              <div className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div
+                data-card
+                className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
                 <div className="h-52 overflow-hidden">
                   <img
                     src={program.image}
                     alt={program.title}
+                    style={{ objectPosition: program.imagePosition }}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                  <h3 className="mb-3 text-2xl font-bold text-navy">
+                  <h3 className="mb-3 text-[27px] font-semibold not-italic leading-[32.4px] text-navy">
                     {program.title}
                   </h3>
-                  <p className="mb-6 flex-1 text-base leading-relaxed text-gray-500">
+                  <p className="mb-6 flex-1 text-[19px] leading-[30px] text-gray-500">
                     {program.description}
                   </p>
-                  {program.to ? (
+                  {program.to?.startsWith("http") ? (
+                    <a
+                      href={program.to}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link inline-flex items-center gap-1.5 self-start text-base font-bold text-navy transition-colors hover:text-gold"
+                    >
+                      Explore
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1 group-hover/link:-translate-y-1" strokeWidth={2.25} />
+                    </a>
+                  ) : program.to ? (
                     <Link
                       to={program.to}
                       className="group/link inline-flex items-center gap-1.5 self-start text-base font-bold text-navy transition-colors hover:text-gold"
                     >
                       Explore
-                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" strokeWidth={2.25} />
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1 group-hover/link:-translate-y-1" strokeWidth={2.25} />
                     </Link>
                   ) : (
                     <a
@@ -127,10 +194,14 @@ function Programs() {
                       className="group/link inline-flex items-center gap-1.5 self-start text-base font-bold text-navy transition-colors hover:text-gold"
                     >
                       Explore
-                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" strokeWidth={2.25} />
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1 group-hover/link:-translate-y-1" strokeWidth={2.25} />
                     </a>
                   )}
                 </div>
+                <div
+                  className="h-1 w-full"
+                  style={{ backgroundColor: accentColors[i % accentColors.length] }}
+                />
               </div>
             </Reveal>
           ))}

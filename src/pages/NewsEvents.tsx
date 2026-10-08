@@ -19,7 +19,7 @@ function NewsEvents() {
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               Nile University's News and Events
             </h1>
-            <p className="mt-4 max-w-3xl font-normal text-[17px] leading-[30px] text-gray-100">
+            <p className="mt-4 max-w-3xl font-normal text-[19px] leading-[30px] text-gray-100">
               Learn about the latest happenings and the many on and off-campus
               activities that Nile's staff and students participate in.
             </p>
@@ -41,12 +41,12 @@ function NewsEvents() {
               <p className="mb-3 italic font-medium text-[15px] leading-[28px] uppercase tracking-widest text-gold">
                 {featured.tag}
               </p>
-              <h2 className="mb-5 font-bold uppercase text-[28px] leading-[36px] text-[#1C4DA1]">
+              <h2 className="mb-5 font-bold uppercase text-[28px] leading-[36px] text-navy">
                 <a href="#" className="transition-colors hover:opacity-80">
                   {featured.title}
                 </a>
               </h2>
-              <p className="mb-8 line-clamp-4 text-base leading-relaxed text-gray-600 md:text-lg">
+              <p className="mb-8 line-clamp-4 text-[19px] leading-[30px] text-gray-600">
                 {featured.excerpt}
               </p>
               <p className="text-base font-bold uppercase tracking-wide text-gray-900">

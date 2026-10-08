@@ -1,3 +1,4 @@
+import Accordion from "../components/Accordion"
 import Reveal from "../components/Reveal"
 import { partnerGroups, type Partner } from "../data/partners"
 
@@ -10,17 +11,17 @@ function PartnerTile({ partner }: { partner: Partner }) {
           alt={partner.name}
           title={partner.name}
           loading="lazy"
-          className="max-h-24 max-w-[90%] object-contain opacity-100 grayscale transition-all duration-300 group-hover:grayscale-0"
+          className="max-h-32 max-w-[92%] object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-      <p className="line-clamp-2 min-h-[2rem] text-center text-xs leading-snug text-gray-500">
+      <p className="min-h-[2.5rem] pt-2 text-center text-[13px] font-semibold leading-snug text-gray-800 sm:text-[14px]">
         {partner.name}
       </p>
     </>
   )
 
   const className =
-    "group flex h-44 flex-col rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md"
+    "group flex h-full min-h-[14rem] flex-col rounded-lg border border-gray-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-navy/40 hover:shadow-md"
 
   return partner.url ? (
     <a href={partner.url} target="_blank" rel="noopener noreferrer" className={className}>
@@ -46,7 +47,7 @@ function Partners() {
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               Nile University Partners
             </h1>
-            <p className="mt-4 max-w-2xl text-[17px] leading-[30px] text-gray-100">
+            <p className="mt-4 max-w-2xl text-[19px] leading-[30px] text-gray-100">
               Our network of global partners shapes how we teach, research, and
               prepare graduates for the world of work.
             </p>
@@ -55,27 +56,36 @@ function Partners() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20">
-        {partnerGroups.map((group, gi) => (
-          <section key={group.heading} className={gi > 0 ? "mt-20" : ""}>
-            <Reveal>
-              <h2 className="text-[28px] font-semibold not-italic leading-tight text-navy md:text-[36px]">
-                {group.heading}
-              </h2>
-              <span className="mt-3 block h-1 w-14 bg-gold" />
-              <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-gray-600">
-                {group.blurb}
-              </p>
-            </Reveal>
+        <div className="space-y-4">
+          {partnerGroups.map((group, gi) => (
+            <Accordion
+              key={group.heading}
+              defaultOpen={gi === 0}
+              title={
+                <span className="flex items-center gap-3">
+                  {group.heading}
+                  <span className="rounded-full bg-navy/10 px-2.5 py-0.5 text-sm font-semibold text-navy">
+                    {group.partners.length}
+                  </span>
+                </span>
+              }
+            >
+              <div className="px-6 py-8">
+                <p className="max-w-3xl text-[15px] leading-relaxed text-gray-600">
+                  {group.blurb}
+                </p>
 
-            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-4">
-              {group.partners.map((partner, i) => (
-                <Reveal key={partner.name} delay={(i % 4) * 60}>
-                  <PartnerTile partner={partner} />
-                </Reveal>
-              ))}
-            </div>
-          </section>
-        ))}
+                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6">
+                  {group.partners.map((partner, i) => (
+                    <Reveal key={partner.name} delay={(i % 4) * 60}>
+                      <PartnerTile partner={partner} />
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </Accordion>
+          ))}
+        </div>
       </div>
 
       {/* CTA */}
@@ -85,7 +95,7 @@ function Partners() {
             <h2 className="text-3xl font-bold text-white md:text-4xl">
               Partner with Nile University
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-gray-200">
+            <p className="mt-4 text-[19px] leading-[30px] text-gray-200">
               We welcome academic institutions, employers, and organisations
               interested in research collaboration, student opportunities, and
               knowledge exchange.

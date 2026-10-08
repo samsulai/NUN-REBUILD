@@ -31,7 +31,7 @@ function Contact() {
             <h2 className="mb-4 text-2xl font-extrabold uppercase tracking-wide text-navy md:text-3xl">
               Leave us your info
             </h2>
-            <p className="mb-8 max-w-xl text-base leading-relaxed text-gray-500">
+            <p className="mb-8 max-w-xl text-[19px] leading-[30px] text-gray-500">
               Have a question about admissions, programmes, or campus life? Fill out the form
               below and our team will get back to you as soon as possible.
             </p>
@@ -85,7 +85,7 @@ function Contact() {
             <h2 className="mb-4 text-2xl font-extrabold uppercase tracking-wide text-navy md:text-3xl">
               Location
             </h2>
-            <p className="mb-6 text-base leading-relaxed text-gray-600">
+            <p className="mb-6 text-[19px] leading-[30px] text-gray-600">
               Plot 681, Cadastral Zone C-OO, Research &amp; Institution Area, Jabi Airport
               Bypass, Abuja FCT, Nigeria.
             </p>

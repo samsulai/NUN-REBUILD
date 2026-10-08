@@ -28,7 +28,7 @@ function ViceChancellorWelcome() {
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               Vice Chancellor's Welcome Message
             </h1>
-            <p className="mt-4 max-w-2xl text-[17px] leading-[30px] text-gray-100">
+            <p className="mt-4 max-w-2xl text-[19px] leading-[30px] text-gray-100">
               I am proud to lead this University as the Vice-Chancellor. Here, you
               are part of a supportive, respectful, and safe community that will
               always strive to go further and help you achieve more.
@@ -41,7 +41,7 @@ function ViceChancellorWelcome() {
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
           <Reveal>
-            <div className="space-y-6 text-[17px] leading-[30px] text-gray-600">
+            <div className="space-y-6 text-[19px] leading-[30px] text-gray-600">
               {messageParagraphs.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}
@@ -59,7 +59,7 @@ function ViceChancellorWelcome() {
                 className="w-full rounded-lg object-cover shadow-md"
               />
               <figcaption className="mt-4 text-center">
-                <p className="text-lg font-bold text-[#1C4DA1]">
+                <p className="text-lg font-bold text-navy">
                   PROF. DILLI DOGO (FNAMed, DFMC)
                 </p>
                 <p className="mt-1 text-sm text-gray-500">Vice-Chancellor</p>
@@ -81,7 +81,7 @@ function ViceChancellorWelcome() {
             </span>
           </Reveal>
           <Reveal delay={120}>
-            <div className="max-w-3xl space-y-5 text-[17px] leading-[30px] italic text-gray-600 md:pt-6">
+            <div className="max-w-3xl space-y-5 text-[19px] leading-[30px] italic text-gray-600 md:pt-6">
               {philosophy.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}
@@ -98,7 +98,7 @@ function ViceChancellorWelcome() {
               <h2 className="mb-4 text-3xl font-bold text-white">
                 Mission Statement
               </h2>
-              <p className="max-w-md text-base leading-relaxed text-gray-100">
+              <p className="max-w-md text-[19px] leading-[30px] text-gray-100">
                 We educate through action, empowering visionary problem-solvers to
                 create a prosperous Africa.
               </p>
@@ -109,7 +109,7 @@ function ViceChancellorWelcome() {
               <h2 className="mb-4 text-3xl font-bold text-white">
                 Vision Statement
               </h2>
-              <p className="max-w-md text-base leading-relaxed text-white/90">
+              <p className="max-w-md text-[19px] leading-[30px] text-white/90">
                 To forge bold, visionary leaders who will transform Africa.
               </p>
             </div>

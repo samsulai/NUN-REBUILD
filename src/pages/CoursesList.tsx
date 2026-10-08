@@ -8,7 +8,7 @@ const PAGE_SIZE = 12
 
 const copy: Record<
   Level,
-  { title: string; crumb: string; label: string; description: string; image: string }
+  { title: string; crumb: string; label: string; description: string }
 > = {
   undergraduate: {
     title: "Undergraduate Courses",
@@ -16,7 +16,6 @@ const copy: Record<
     label: "undergraduate",
     description:
       "With access to Nile University's extensive collections and resources, our undergraduates have discovered new species, patented products, and co-authored original research.",
-    image: "/DSC00304-scaled.avif",
   },
   postgraduate: {
     title: "Postgraduate Courses",
@@ -24,7 +23,6 @@ const copy: Record<
     label: "postgraduate",
     description:
       "Nile University's School of Postgraduate Studies offers advanced degrees for professionals and researchers looking to deepen their expertise, build on faculty-led research, and take the next step in their careers.",
-    image: "/l1.jpeg",
   },
 }
 
@@ -33,7 +31,7 @@ function CoursesList({ level }: { level: Level }) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
 
   const programs = level === "undergraduate" ? undergraduatePrograms : postgraduatePrograms
-  const { title, crumb, label, description, image } = copy[level]
+  const { title, crumb, label, description } = copy[level]
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -48,8 +46,11 @@ function CoursesList({ level }: { level: Level }) {
   return (
     <div>
       <div className="relative flex min-h-[420px] items-center overflow-hidden bg-navy py-14 md:min-h-[480px]">
-        <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-navy/70" />
+        <img
+          src="/Rising%20Sun.avif"
+          alt=""
+          className="pointer-events-none absolute inset-y-0 right-0 h-full w-auto max-w-none opacity-30"
+        />
         <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
           <Reveal>
             <p className="mb-3 text-sm text-gray-300">

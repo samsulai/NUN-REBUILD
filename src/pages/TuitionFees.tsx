@@ -4,11 +4,15 @@ import { Link } from "react-router-dom"
 import Reveal from "../components/Reveal"
 import { tuitionFees, tuitionNotes, type TuitionCourse } from "../data/tuitionFees"
 
-const body = "font-normal text-[17px] leading-[25.5px] text-[#333435]"
+const body = "font-normal text-[19px] leading-[30px] text-[#333435]"
 
-function CourseRow({ course }: { course: TuitionCourse }) {
+function CourseRow({ course, showTotal }: { course: TuitionCourse; showTotal?: boolean }) {
   return (
-    <div className="grid grid-cols-1 gap-1 border-b border-gray-100 py-4 last:border-0 sm:grid-cols-[1.6fr_1fr_1fr_1fr] sm:items-center sm:gap-4">
+    <div
+      className={`grid grid-cols-1 gap-1 border-b border-gray-100 py-4 last:border-0 sm:items-center sm:gap-4 ${
+        showTotal ? "sm:grid-cols-[1.4fr_0.9fr_0.9fr_0.9fr_0.9fr]" : "sm:grid-cols-[1.6fr_1fr_1fr_1fr]"
+      }`}
+    >
       <p className="font-semibold text-navy sm:font-normal sm:text-[16px] sm:text-gray-800">
         {course.course}
       </p>
@@ -24,6 +28,12 @@ function CourseRow({ course }: { course: TuitionCourse }) {
         <span className="sm:hidden">Per session: </span>
         <span className="font-bold text-navy">{course.perSession}</span>
       </p>
+      {showTotal && (
+        <p className="text-sm text-gray-700 sm:text-right sm:text-[15px]">
+          <span className="sm:hidden">Total program fee: </span>
+          <span className="font-bold text-navy">{course.totalProgramFee}</span>
+        </p>
+      )}
     </div>
   )
 }
@@ -104,11 +114,16 @@ function LevelAccordion({
             </select>
           </div>
 
-          <div className="hidden grid-cols-[1.6fr_1fr_1fr_1fr] gap-4 border-b-2 border-navy pb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:grid">
+          <div
+            className={`hidden gap-4 border-b-2 border-navy pb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:grid ${
+              level.showTotal ? "grid-cols-[1.4fr_0.9fr_0.9fr_0.9fr_0.9fr]" : "grid-cols-[1.6fr_1fr_1fr_1fr]"
+            }`}
+          >
             <span>Course</span>
             <span>Duration</span>
             <span className="text-right">Fee per semester</span>
             <span className="text-right">Fee per session</span>
+            {level.showTotal && <span className="text-right">Total program fee</span>}
           </div>
 
           {filtered.length === 0 ? (
@@ -121,7 +136,7 @@ function LevelAccordion({
                 </h3>
                 <div className="rounded-lg border border-gray-200 px-4 sm:border-0 sm:px-0">
                   {f.courses.map((c) => (
-                    <CourseRow key={c.course} course={c} />
+                    <CourseRow key={c.course} course={c} showTotal={level.showTotal} />
                   ))}
                 </div>
               </div>
@@ -149,7 +164,7 @@ function TuitionFees() {
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               Tuition Fees
             </h1>
-            <p className="mt-3 font-normal text-[17px] leading-[25.5px] text-gray-100">
+            <p className="mt-3 font-normal text-[19px] leading-[30px] text-gray-100">
               Our tuition fees for the 2026/2027 academic session.
             </p>
           </Reveal>
@@ -201,7 +216,7 @@ function TuitionFees() {
             <h2 className="text-3xl font-bold text-white md:text-4xl">
               Questions about fees or payment?
             </h2>
-            <p className="mt-4 font-normal text-[17px] leading-[25.5px] text-gray-200">
+            <p className="mt-4 font-normal text-[19px] leading-[30px] text-gray-200">
               Our admissions team can walk you through fees, instalment options,
               and the scholarships you may be eligible for.
             </p>

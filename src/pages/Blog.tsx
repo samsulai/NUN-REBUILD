@@ -93,7 +93,7 @@ function Blog() {
                 <h2 className="mb-3 text-2xl font-bold leading-snug text-navy">
                   {featured.title}
                 </h2>
-                <p className="mb-4 text-base leading-relaxed text-gray-500">
+                <p className="mb-4 text-[19px] leading-[30px] text-gray-500">
                   {featured.excerpt}
                 </p>
                 <p className="mb-5 text-sm text-gray-400">

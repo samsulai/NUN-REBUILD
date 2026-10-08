@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { ChevronDown, Search, X } from "lucide-react"
 import logo from "../assets/nile-logo.svg"
@@ -44,7 +45,7 @@ const studyDropdown: Dropdown = {
         { label: "Apply Now (Postgraduate)", to: null },
         { label: "Undergraduate Courses", to: "/undergraduate" },
         { label: "Postgraduate Courses", to: "/postgraduate" },
-        { label: "School of Preliminary Studies", to: null },
+        { label: "School of Preliminary Studies", to: "/sps" },
         { label: "Nile Consult & Services Ltd.", to: "https://nileconsultservices.com/" },
         { label: "Nile Online", to: "https://online.nileuniversity.edu.ng/" },
       ],
@@ -57,7 +58,7 @@ const studyDropdown: Dropdown = {
         { label: "Nile Welcome Booklet", to: "/welcome-booklet" },
         { label: "Scholarships & Discounts", to: "/scholarships-discounts" },
         { label: "Academic Calendar", to: "/academic-calendar" },
-        { label: "SIWES", to: null },
+        { label: "SIWES", to: "/siwes" },
         { label: "Student Information System", to: null },
       ],
     },
@@ -70,8 +71,7 @@ const studentLifeDropdown: Dropdown = {
       heading: "Student experience",
       links: [
         { label: "Virtual Tour", to: "/virtual-tour" },
-        { label: "Student Experience", to: null },
-        { label: "Student Welfare", to: null },
+        { label: "Student Experience", to: "/student-services" },
         { label: "Student Accommodation", to: "/student-accommodation" },
       ],
     },
@@ -80,11 +80,17 @@ const studentLifeDropdown: Dropdown = {
       links: [
         { label: "Student Handbook", to: null },
         { label: "Clubs & Activities", to: null },
-        { label: "Mystique Magazine", to: null },
+        { label: "Mystique Magazine", to: "/mystique-magazine" },
       ],
     },
   ],
 }
+
+const applyLinks: DropdownLink[] = [
+  { label: "SPS", to: "/sps" },
+  { label: "Undergraduate", to: "/undergraduate" },
+  { label: "Postgraduate", to: "/postgraduate" },
+]
 
 const links: NavLink[] = [
   { label: "About Nile", to: null, dropdown: aboutDropdown },
@@ -95,7 +101,16 @@ const links: NavLink[] = [
   { label: "Blog", to: "/blog" },
 ]
 
+const spsLinks: NavLink[] = [
+  { label: "Programme Structure", to: null },
+  { label: "Pay Fees", to: null },
+  { label: "Apply Now", to: null },
+  { label: "Sign In", to: null },
+]
+
 function Navbar() {
+  const { pathname } = useLocation()
+  const isSps = pathname.startsWith("/sps")
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState("")
@@ -107,11 +122,15 @@ function Navbar() {
     >
       <div className="flex items-center justify-between px-6 py-4 md:px-10">
         <Link to="/">
-          <img src={logo} alt="Nile University of Nigeria" className="h-10 w-auto md:h-11" />
+          <img
+            src={isSps ? "/sps-logo.avif" : logo}
+            alt={isSps ? "Nile University School of Preliminary Studies" : "Nile University of Nigeria"}
+            className={isSps ? "h-10 w-auto md:h-12" : "h-10 w-auto md:h-11"}
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 text-[20px] font-medium not-italic leading-[30px] text-gray-600 lg:flex">
-          {links.map((link) => (
+          {(isSps ? spsLinks : links).map((link) => (
             <div
               key={link.label}
               className="relative"
@@ -199,12 +218,48 @@ function Navbar() {
             )}
           </button>
 
-          <a
-            href="#"
-            className="rounded bg-navy px-5 py-2.5 text-base font-medium text-white transition-all hover:scale-105 hover:bg-navy-light"
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenMenu("Apply now")}
           >
-            Apply now
-          </a>
+            {!isSps && (
+              <a
+                href="#"
+                className="flex items-center gap-1 rounded bg-navy px-5 py-2.5 text-base font-medium text-white transition-all hover:scale-105 hover:bg-navy-light"
+              >
+                Apply now
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${
+                    openMenu === "Apply now" ? "rotate-180" : ""
+                  }`}
+                />
+              </a>
+            )}
+
+            {!isSps && openMenu === "Apply now" && (
+              <div className="animate-fade-in-up absolute right-0 top-full z-50 pt-4">
+                <ul className="w-56 space-y-1 border border-gray-100 bg-white/90 p-3 shadow-xl backdrop-blur-md">
+                  {applyLinks.map((item) => {
+                    const linkClass =
+                      "block rounded px-3 py-2 not-italic font-normal text-[16px] leading-[28px] text-[#333435] transition-colors hover:bg-sand hover:text-navy"
+                    return (
+                      <li key={item.label}>
+                        {item.to ? (
+                          <Link to={item.to} className={linkClass}>
+                            {item.label}
+                          </Link>
+                        ) : (
+                          <a href="#" className={linkClass}>
+                            {item.label}
+                          </a>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

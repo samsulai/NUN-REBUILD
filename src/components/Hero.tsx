@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 const slides = [
   {
     image: "/sfjigh8hgngjg.avif",
-    eyebrow: "Admissions open for the 2026/2027 academic year",
     title: "Shape your future at Nile University",
     description:
       "A leading centre of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
@@ -12,15 +11,13 @@ const slides = [
   },
   {
     image: "/ug3.jpeg",
-    eyebrow: "Home to eight faculties and 100+ programmes",
     title: "Find the right programme for you",
     description:
       "Explore undergraduate and postgraduate degrees across engineering, business, sciences, and the humanities.",
     cta: { label: "Explore Programmes", to: "/undergraduate" },
   },
   {
-    image: "/Nile-University-Boys-Hostel.avif",
-    eyebrow: "See Nile before you apply",
+    image: "/campus-aerial.webp",
     title: "Take a virtual tour of our campus",
     description:
       "Explore our facilities, faculties, and campus life from anywhere in the world, before you visit in person.",
@@ -28,7 +25,6 @@ const slides = [
   },
   {
     image: "/ugnew.jpeg",
-    eyebrow: "Questions before you apply?",
     title: "Let's help you get started",
     description:
       "Our admissions team is ready to walk you through programmes, requirements, and next steps.",
@@ -94,24 +90,23 @@ function Hero() {
         key={slide.title}
         className="relative z-10 max-w-xl pl-12 text-left text-white animate-fade-in-up md:pl-10"
       >
-        <p className="mb-3 text-lg text-gold-light">{slide.eyebrow}</p>
         <h1 className="mb-4 text-4xl font-bold leading-tight md:text-6xl">
           {slide.title}
         </h1>
-        <p className="mb-6 text-base leading-relaxed text-gray-200 md:text-lg">
+        <p className="mb-6 text-[19px] leading-[30px] text-gray-200">
           {slide.description}
         </p>
         {slide.cta.to ? (
           <Link
             to={slide.cta.to}
-            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-sand"
+            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-[#eef2fb]"
           >
             {slide.cta.label}
           </Link>
         ) : (
           <a
             href={slide.cta.href}
-            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-sand"
+            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-[#eef2fb]"
           >
             {slide.cta.label}
           </a>

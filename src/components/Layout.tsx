@@ -3,6 +3,8 @@ import { Outlet, useLocation } from "react-router-dom"
 import AnnouncementBar from "./AnnouncementBar"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
+import BackToTop from "./BackToTop"
+import DisclaimerModal from "./DisclaimerModal"
 
 function Layout() {
   const { pathname } = useLocation()
@@ -17,6 +19,8 @@ function Layout() {
       <Navbar />
       <Outlet />
       <Footer />
+      <BackToTop />
+      <DisclaimerModal />
     </main>
   )
 }

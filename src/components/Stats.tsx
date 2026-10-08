@@ -5,7 +5,7 @@ const stats = [
   { value: 13000, suffix: "+", label: "Alumni" },
   { value: 100, suffix: "+", label: "Degree programmes" },
   { value: 17, suffix: "+", label: "Years of excellence" },
-  { value: 80, suffix: "%", label: "Employability rate" },
+  { value: 91, suffix: "%", label: "Employability rate" },
 ]
 
 function StatItem({
@@ -61,7 +61,7 @@ function Stats() {
   const { ref, inView } = useInView<HTMLDivElement>()
 
   return (
-    <section className="bg-[#eef2fb] px-6 py-14 text-center md:px-10">
+    <section className="bg-[#f8f9fb] px-6 py-14 text-center md:px-10">
       <h2 className="mb-8 text-[48px] font-semibold not-italic leading-[48px] text-navy">
         Our achievements at a glance
       </h2>

@@ -21,7 +21,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         </span>
       </button>
       {open && (
-        <div className="animate-fade-in-up px-5 py-4 text-base leading-relaxed text-gray-600">
+        <div className="animate-fade-in-up px-5 py-4 text-[19px] leading-[30px] text-gray-600">
           {answer}
         </div>
       )}
@@ -84,7 +84,7 @@ function CourseDetail() {
             <h2 className="mb-4 text-xl font-semibold text-navy underline decoration-2 underline-offset-4">
               Programme Description
             </h2>
-            <p className="text-base leading-relaxed text-gray-600">{content.description}</p>
+            <p className="text-[19px] leading-[30px] text-gray-600">{content.description}</p>
           </Reveal>
 
           <Reveal delay={100}>
@@ -129,7 +129,7 @@ function CourseDetail() {
               <h2 className="mb-3 text-lg font-semibold text-navy">
                 This programme prepares graduates for roles in:
               </h2>
-              <p className="text-base leading-relaxed text-gray-600">
+              <p className="text-[19px] leading-[30px] text-gray-600">
                 Graduates of this programme go on to work across {content.careers}
               </p>
             </div>

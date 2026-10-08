@@ -20,6 +20,14 @@ import Prospectus from "./pages/Prospectus"
 import WelcomeBooklet from "./pages/WelcomeBooklet"
 import TuitionFees from "./pages/TuitionFees"
 import Accommodation from "./pages/Accommodation"
+import StudentServices from "./pages/StudentServices"
+import SchoolOfPreliminaryStudies from "./pages/SchoolOfPreliminaryStudies"
+import TermsConditions from "./pages/TermsConditions"
+import FraudDisclaimer from "./pages/FraudDisclaimer"
+import CookiePolicy from "./pages/CookiePolicy"
+import Sitemap from "./pages/Sitemap"
+import Siwes from "./pages/Siwes"
+import MystiqueMagazine from "./pages/MystiqueMagazine"
 
 function App() {
   return (
@@ -47,6 +55,14 @@ function App() {
         <Route path="welcome-booklet" element={<WelcomeBooklet />} />
         <Route path="tuition-fees" element={<TuitionFees />} />
         <Route path="student-accommodation" element={<Accommodation />} />
+        <Route path="student-services" element={<StudentServices />} />
+        <Route path="sps" element={<SchoolOfPreliminaryStudies />} />
+        <Route path="terms-conditions" element={<TermsConditions />} />
+        <Route path="fraud-disclaimer" element={<FraudDisclaimer />} />
+        <Route path="cookie-policy" element={<CookiePolicy />} />
+        <Route path="sitemap" element={<Sitemap />} />
+        <Route path="siwes" element={<Siwes />} />
+        <Route path="mystique-magazine" element={<MystiqueMagazine />} />
       </Route>
     </Routes>
   )

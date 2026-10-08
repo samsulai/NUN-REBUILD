@@ -1,17 +1,77 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #274193;
-  --color-navy-light: #3a56ad;
+  --color-navy: #1b4e9e;
+  --color-navy-light: #3d69ad;
   --color-gold: #75b947;
   --color-gold-light: #93cd6c;
   --color-sand: #f7f4ed;
-  --text-base: 20px;
+  --text-base: 19px;
   --text-base--line-height: 30px;
+}
+
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard Hairline.otf") format("opentype");
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard Thin.otf") format("opentype");
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard ExtraLight.otf") format("opentype");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard Book.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Milliard";
+  src: url("/milliard/Rene Bieder  Milliard Black.otf") format("opentype");
+  font-weight: 900;
+  font-display: swap;
 }
 
 body {
   font-family: "Lato", system-ui, "Segoe UI", Roboto, sans-serif;
+  color: #111111;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Milliard", "Lato", system-ui, "Segoe UI", Roboto, sans-serif;
 }
 
 @keyframes kenburns {
@@ -105,3 +165,4 @@ body {
     width: 100%;
   }
 }
+

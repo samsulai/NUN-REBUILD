@@ -1,15 +1,17 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Mail, MessageCircle, Phone } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa6"
+import AuditComplianceModal from "./AuditComplianceModal"
 
 const columns = [
   {
     title: "Quick Links",
     links: [
-      { label: "About Nile University", to: null },
       { label: "Contact Us", to: "/contact" },
+      { label: "Virtual Tour", to: "/virtual-tour" },
       { label: "Frequently Asked Questions", to: null },
-      { label: "News & Media", to: null },
+      { label: "News & Media", to: "/news" },
       { label: "Application Portal", to: null },
       { label: "Careers at Nile", to: null },
     ],
@@ -17,7 +19,7 @@ const columns = [
   {
     title: "Study & Admission",
     links: [
-      { label: "School of Preliminary Studies", to: null },
+      { label: "School of Preliminary Studies", to: "/sps" },
       { label: "Undergraduate Degrees", to: "/undergraduate" },
       { label: "Postgraduate Degrees", to: "/postgraduate" },
       { label: "Nile Consult & Services Ltd.", to: "https://nileconsultservices.com/" },
@@ -28,12 +30,12 @@ const columns = [
   {
     title: "Resources",
     links: [
-      { label: "Fraud Disclaimer", to: null },
-      { label: "Terms & Conditions", to: null },
-      { label: "Privacy Policy", to: null },
-      { label: "Cookie Policy", to: null },
+      { label: "Fraud Disclaimer", to: "/fraud-disclaimer" },
+      { label: "Terms & Conditions", to: "/terms-conditions" },
+      { label: "Privacy Policy", to: "https://privacy.nileuniversity.edu.ng/" },
+      { label: "Cookie Policy", to: "/cookie-policy" },
       { label: "Audit Compliance", to: null },
-      { label: "Sitemap", to: null },
+      { label: "Sitemap", to: "/sitemap" },
     ],
   },
 ]
@@ -47,8 +49,10 @@ const socials = [
 ]
 
 function Footer() {
+  const [auditOpen, setAuditOpen] = useState(false)
+
   return (
-    <footer className="bg-[#0f3069]">
+    <footer className="bg-navy">
       <div className="mx-auto grid max-w-screen-2xl gap-10 px-6 py-14 md:px-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <img
@@ -98,7 +102,15 @@ function Footer() {
                 return (
                   <li key={link.label} className="flex items-start gap-2">
                     <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-gold-light" />
-                    {isExternal ? (
+                    {link.label === "Audit Compliance" ? (
+                      <button
+                        type="button"
+                        onClick={() => setAuditOpen(true)}
+                        className={linkClass}
+                      >
+                        {link.label}
+                      </button>
+                    ) : isExternal ? (
                       <a
                         href={link.to as string}
                         target="_blank"
@@ -141,6 +153,8 @@ function Footer() {
           </div>
         </div>
       </div>
+
+      <AuditComplianceModal open={auditOpen} onClose={() => setAuditOpen(false)} />
     </footer>
   )
 }

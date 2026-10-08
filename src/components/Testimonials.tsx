@@ -86,15 +86,12 @@ function Testimonials() {
   }
 
   return (
-    <section className="bg-[#eef2fb] px-6 py-16 md:px-10">
+    <section className="bg-[#f8f9fb] px-6 py-16 md:px-10">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="mx-auto mb-12 max-w-xl text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">
-              Graduate Stories
-            </p>
             <h2 className="mb-4 text-[40px] font-semibold not-italic leading-tight text-navy md:text-[48px] md:leading-[48px]">
-              If They Can Do It, So Can You
+              Testimonials
             </h2>
             <p className="text-[16px] font-normal not-italic leading-[28.8px] text-gray-500">
               Graduates share how their years at Nile shaped the careers they are

@@ -69,7 +69,7 @@ function Alumni() {
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               Alumni
             </h1>
-            <p className="mt-4 max-w-2xl text-[17px] leading-[30px] text-gray-100">
+            <p className="mt-4 max-w-2xl text-[19px] leading-[30px] text-gray-100">
               Discover what some of our alumni have to say about their time at Nile
               University.
             </p>
@@ -118,7 +118,7 @@ function Alumni() {
             <h2 className="text-3xl font-bold text-white md:text-4xl">
               Join the alumni network
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-gray-200">
+            <p className="mt-4 text-[19px] leading-[30px] text-gray-200">
               Reconnect with classmates, mentor current students, and stay part of
               the Nile University community wherever you are in the world.
             </p>

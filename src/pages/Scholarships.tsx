@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Accordion from "../components/Accordion"
 import Reveal from "../components/Reveal"
 import {
   aLevelScale,
@@ -17,7 +18,7 @@ import {
 const sectionHeading =
   "font-semibold not-italic text-[35px] leading-[50px] text-navy"
 const subHeading = "text-lg font-bold uppercase tracking-wide text-navy"
-const body = "font-normal text-[17px] leading-[25.5px] text-gray-600"
+const body = "font-normal text-[19px] leading-[30px] text-gray-600"
 
 function PercentCard({
   percent,
@@ -32,26 +33,25 @@ function PercentCard({
     <div className="flex h-full flex-col border border-gray-200 p-6">
       <span className="text-4xl font-extrabold text-gold">{percent}</span>
       <h4 className="mt-2 text-lg font-bold text-navy">{title}</h4>
-      <p className="mt-2 text-[17px] leading-[25.5px] text-gray-600">{detail}</p>
+      <p className="mt-2 text-[19px] leading-[30px] text-gray-600">{detail}</p>
     </div>
   )
 }
 
 function Conditions({ items }: { items: string[] }) {
   return (
-    <details className="mt-6 border border-gray-200 [&_summary]:cursor-pointer">
-      <summary className="px-5 py-3 text-sm font-semibold text-navy marker:text-gold">
-        Full eligibility conditions
-      </summary>
-      <ul className="space-y-3 border-t border-gray-100 px-5 py-4">
-        {items.map((item) => (
-          <li key={item.slice(0, 30)} className="flex gap-3 text-[17px] leading-[25.5px] text-gray-600">
-            <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </details>
+    <div className="mt-6">
+      <Accordion title="Full eligibility conditions">
+        <ul className="space-y-3 px-6 py-5">
+          {items.map((item) => (
+            <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-gray-600">
+              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </Accordion>
+    </div>
   )
 }
 
@@ -70,7 +70,7 @@ function Scholarships() {
             <h1 className="font-extrabold text-[40px] leading-[44px] text-white md:text-[55px] md:leading-[60px]">
               Scholarships &amp; Discounts
             </h1>
-            <p className="mt-3 font-normal text-[17px] leading-[25.5px] text-gray-100">
+            <p className="mt-3 font-normal text-[19px] leading-[30px] text-gray-100">
               Our scholarships and discounts policy for the 2026/2027 academic
               session.
             </p>
@@ -90,7 +90,7 @@ function Scholarships() {
             <p className={`mt-3 ${body}`}>{ugIntro}</p>
 
             <div className="mt-6 overflow-hidden border border-gray-200">
-              <div className="bg-navy px-5 py-3 text-sm font-semibold text-white">
+              <div className="bg-navy px-5 py-3 text-lg font-normal uppercase tracking-wide text-white">
                 All undergraduate programmes except Law &amp; Medicine
               </div>
               <table className="w-full text-left">
@@ -108,10 +108,10 @@ function Scholarships() {
                       key={row.qualification}
                       className="border-b border-gray-100 last:border-0"
                     >
-                      <td className="px-5 py-3 text-[17px] leading-[25.5px] text-gray-700">
+                      <td className="px-5 py-3 text-[19px] leading-[30px] text-gray-700">
                         {row.qualification}
                       </td>
-                      <td className="px-5 py-3 text-right text-[17px] leading-[25.5px] font-bold text-navy">
+                      <td className="px-5 py-3 text-right text-[19px] leading-[30px] font-bold text-navy">
                         {row.scholarship}
                       </td>
                     </tr>
@@ -136,13 +136,13 @@ function Scholarships() {
                 <tbody>
                   {aLevelScale.map((row) => (
                     <tr key={row.result} className="border-b border-gray-100 last:border-0">
-                      <td className="px-5 py-3 text-[17px] leading-[25.5px] text-gray-700">
+                      <td className="px-5 py-3 text-[19px] leading-[30px] text-gray-700">
                         {row.result}
                       </td>
-                      <td className="px-5 py-3 text-right text-[17px] leading-[25.5px] font-bold text-navy">
+                      <td className="px-5 py-3 text-right text-[19px] leading-[30px] font-bold text-navy">
                         {row.nileSps}
                       </td>
-                      <td className="px-5 py-3 text-right text-[17px] leading-[25.5px] font-bold text-navy">
+                      <td className="px-5 py-3 text-right text-[19px] leading-[30px] font-bold text-navy">
                         {row.others}
                       </td>
                     </tr>
@@ -183,7 +183,7 @@ function Scholarships() {
               <h3 className={subHeading}>Guidelines</h3>
               <ul className="mt-4 space-y-3">
                 {sportGuidelines.map((item) => (
-                  <li key={item.slice(0, 30)} className="flex gap-3 text-[17px] leading-[25.5px] text-gray-600">
+                  <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-gray-600">
                     <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
                     {item}
                   </li>
@@ -221,7 +221,7 @@ function Scholarships() {
             </div>
             <ul className="mt-5 space-y-2">
               {siblingNotes.map((note) => (
-                <li key={note.slice(0, 30)} className="flex gap-3 text-[17px] leading-[25.5px] text-gray-500">
+                <li key={note.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-gray-500">
                   <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gray-400" />
                   {note}
                 </li>
@@ -275,7 +275,7 @@ function Scholarships() {
             <h2 className={sectionHeading}>Before you apply</h2>
             <ul className="mt-6 space-y-4">
               {beforeYouApply.map((item) => (
-                <li key={item.slice(0, 30)} className="flex gap-3 text-[17px] leading-[25.5px] text-gray-600">
+                <li key={item.slice(0, 30)} className="flex gap-3 text-[19px] leading-[30px] text-gray-600">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-navy" />
                   {item}
                 </li>
@@ -292,7 +292,7 @@ function Scholarships() {
             <h2 className="text-3xl font-bold text-white md:text-4xl">
               Ready to apply?
             </h2>
-            <p className="mt-4 font-normal text-[17px] leading-[25.5px] text-gray-200">
+            <p className="mt-4 font-normal text-[19px] leading-[30px] text-gray-200">
               Speak to our admissions team about the scholarship or discount you
               may qualify for.
             </p>
