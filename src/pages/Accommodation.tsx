@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Check } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import Accordion from "../components/Accordion"
 import Reveal from "../components/Reveal"
 import {
@@ -50,9 +50,6 @@ function Toggle({ basis, onChange }: { basis: Basis; onChange: (b: Basis) => voi
 function Accommodation() {
   const [basis, setBasis] = useState<Basis>("semester")
 
-  const activeCell = "text-right text-[17px] font-bold text-navy"
-  const mutedCell = "text-right text-[15px] text-gray-400"
-
   return (
     <div>
       {/* Hero */}
@@ -100,67 +97,67 @@ function Accommodation() {
             <Toggle basis={basis} onChange={setBasis} />
           </div>
 
-          <div className="overflow-x-auto border border-gray-200">
-            <table className="w-full min-w-[620px] text-left">
-              <thead>
-                <tr className="bg-[#f8f9fb] text-xs uppercase tracking-wide text-gray-500">
-                  <th className="px-5 py-3 font-semibold">Room</th>
-                  <th className="px-5 py-3 font-semibold">Shared by</th>
-                  <th className="px-5 py-3 text-right font-semibold">Per semester</th>
-                  <th className="px-5 py-3 text-right font-semibold">Per session</th>
-                </tr>
-              </thead>
-              <tbody>
-                {roomFees.map((room) => (
-                  <tr key={room.roomClass} className="border-t border-gray-100">
-                    <td className="px-5 py-4">
-                      <p className="text-[16px] font-bold text-navy">{room.roomClass}</p>
-                      {room.note && <p className="mt-0.5 text-[12px] text-gray-500">{room.note}</p>}
-                    </td>
-                    <td className="px-5 py-4">
-                      <span className="text-[15px] text-gray-600">
-                        {room.sharedBy} students
-                      </span>
-                    </td>
-                    <td className={`px-5 py-4 ${basis === "semester" ? activeCell : mutedCell}`}>
-                      {room.perSemester}
-                    </td>
-                    <td className={`px-5 py-4 ${basis === "session" ? activeCell : mutedCell}`}>
-                      {room.perSession}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {roomFees.map((room) => (
+              <div
+                key={room.roomClass}
+                className="flex flex-col border border-gray-200 bg-white"
+              >
+                <div className="border-b-4 border-navy p-6">
+                  <h3 className="text-[22px] font-bold text-navy">{room.roomClass}</h3>
+                  <p className="mt-1 text-[14px] text-gray-500">
+                    {room.occupancy}
+                    {room.sharedBy ? ` · Shared by ${room.sharedBy} students` : ""}
+                  </p>
+                </div>
+
+                <div className="flex-1 p-6">
+                  <ul className="space-y-3">
+                    {feesCover.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-[15px] text-[#333435]">
+                        <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-gold" strokeWidth={2.5} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  {room.note && (
+                    <p className="mt-4 text-[13px] italic text-gray-500">{room.note}</p>
+                  )}
+                </div>
+
+                <div className="border-t border-gray-100 p-6">
+                  <p className="text-[32px] font-bold leading-tight text-navy">
+                    {basis === "semester" ? room.perSemester : room.perSession}
+                  </p>
+                  <p className="text-[13px] text-gray-500">per {basis}</p>
+                  <a
+                    href="https://student.nileuniversity.edu.ng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 bg-navy px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-navy-light"
+                  >
+                    Apply Now
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <p className="mt-5 flex items-start gap-3 border-l-4 border-gold bg-[#eef6ea] px-5 py-4 text-[16px] leading-[25px] text-[#333435]">
+          <p className="mt-8 flex items-start gap-3 border-l-4 border-gold bg-[#eef6ea] px-5 py-4 text-[16px] leading-[25px] text-[#333435]">
             <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" strokeWidth={2.5} />
             {accommodationNote}
           </p>
         </Reveal>
       </div>
 
-      {/* No hidden costs */}
+      {/* Optional extras */}
       <div className="bg-[#eef2fb] px-6 py-14 md:px-10 md:py-16">
-        <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">
-          <Reveal>
-            <p className={eyebrow}>Included in every room</p>
-            <h2 className={sectionHeading}>No hidden costs</h2>
-            <ul className="mt-6 space-y-3">
-              {feesCover.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-[16px] text-[#333435]">
-                  <Check className="h-5 w-5 flex-shrink-0 text-navy" strokeWidth={2.5} />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-
+        <div className="mx-auto max-w-5xl">
           <Reveal>
             <p className={eyebrow}>Optional extras</p>
             <h2 className={sectionHeading}>Add if you need them</h2>
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {packageFees.map((pkg) => (
                 <div
                   key={pkg.roomClass}

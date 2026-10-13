@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { ChevronDown, Search, X } from "lucide-react"
 import logo from "../assets/nile-logo.svg"
+import SearchOverlay from "./SearchOverlay"
 
 type DropdownLink = { label: string; to: string | null }
 type DropdownColumn = { heading: string; links: DropdownLink[] }
@@ -113,7 +114,6 @@ function Navbar() {
   const isSps = pathname.startsWith("/sps")
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
-  const [query, setQuery] = useState("")
 
   return (
     <header
@@ -263,27 +263,7 @@ function Navbar() {
         </div>
       </div>
 
-      {searchOpen && (
-        <div className="animate-fade-in-up border-t border-gray-100 bg-white">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault()
-              setSearchOpen(false)
-            }}
-            className="mx-auto flex max-w-7xl items-center gap-3 px-6 py-4 md:px-10"
-          >
-            <Search className="h-5 w-5 shrink-0 text-gray-400" strokeWidth={1.75} />
-            <input
-              autoFocus
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search Nile University…"
-              className="w-full bg-transparent py-1 text-[17px] not-italic text-navy outline-none placeholder:text-gray-400"
-            />
-          </form>
-        </div>
-      )}
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   )
 }
