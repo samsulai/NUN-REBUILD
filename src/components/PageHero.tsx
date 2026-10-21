@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import Link from "next/link"
 import Reveal from "./Reveal"
 
 function PageHero({
@@ -18,7 +18,7 @@ function PageHero({
         <Reveal>
           {crumb && (
             <p className="mb-3 text-sm text-gray-500">
-              <Link to="/" className="hover:text-navy">
+              <Link href="/" className="hover:text-navy">
                 Home
               </Link>{" "}
               <span className="mx-1">›</span> {crumb}

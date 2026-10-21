@@ -1,6 +1,9 @@
-import { useState } from "react"
+"use client"
+
+import { useEffect, useState } from "react"
 import { Download, ExternalLink, Loader2 } from "lucide-react"
 import Reveal from "./Reveal"
+import Image from "next/image"
 
 function EmailGate({
   reportLabel,
@@ -114,14 +117,16 @@ function PdfReportPage({
   leadEndpoint?: string
 }) {
   const storageKey = `lead-unlocked:${pdfSrc}`
-  const [unlocked, setUnlocked] = useState(() => {
-    if (!requireEmail) return true
+  const [unlocked, setUnlocked] = useState(() => !requireEmail)
+
+  useEffect(() => {
+    if (!requireEmail) return
     try {
-      return localStorage.getItem(storageKey) === "1"
+      if (localStorage.getItem(storageKey) === "1") setUnlocked(true)
     } catch {
-      return false
+      // ignore storage errors (private browsing, etc.)
     }
-  })
+  }, [requireEmail, storageKey])
 
   const handleUnlock = () => {
     setUnlocked(true)
@@ -135,10 +140,12 @@ function PdfReportPage({
   return (
     <div>
       <div className="relative flex min-h-[320px] items-center overflow-hidden bg-navy py-14 md:min-h-[380px]">
-        <img
-          src="/Rising%20Sun.avif"
+        <Image
+          src="/Rising Sun.avif"
           alt=""
-          className="pointer-events-none absolute inset-y-0 right-0 h-full w-auto max-w-none opacity-30"
+          fill
+          sizes="100vw" priority
+          className="pointer-events-none object-contain object-right opacity-30"
         />
         <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
           <Reveal>

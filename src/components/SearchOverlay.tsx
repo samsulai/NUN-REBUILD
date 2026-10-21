@@ -1,7 +1,9 @@
+"use client"
+
 import { useEffect, useMemo, useRef, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useRouter } from "next/navigation"
 import { ArrowRight, Search, X } from "lucide-react"
-import { searchIndex, type SearchEntry } from "../data/siteIndex"
+import type { SearchEntry } from "../data/siteIndex"
 
 const groupLabel: Record<SearchEntry["group"], string> = {
   Page: "Page",
@@ -23,11 +25,19 @@ function highlight(label: string, query: string) {
   )
 }
 
-function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
+function SearchOverlay({
+  open,
+  onClose,
+  searchIndex,
+}: {
+  open: boolean
+  onClose: () => void
+  searchIndex: SearchEntry[]
+}) {
   const [query, setQuery] = useState("")
   const [activeIndex, setActiveIndex] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
-  const navigate = useNavigate()
+  const router = useRouter()
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -44,7 +54,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
       .filter((r) => r.score >= 0)
       .sort((a, b) => a.score - b.score || a.entry.label.localeCompare(b.entry.label))
     return scored.map((r) => r.entry).slice(0, 8)
-  }, [query])
+  }, [query, searchIndex])
 
   useEffect(() => {
     setActiveIndex(0)
@@ -72,7 +82,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
     if (entry.to.startsWith("http")) {
       window.open(entry.to, "_blank", "noopener,noreferrer")
     } else {
-      navigate(entry.to)
+      router.push(entry.to)
     }
   }
 

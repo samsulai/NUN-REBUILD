@@ -1,4 +1,7 @@
+"use client"
+
 import { useState } from "react"
+import Image from "next/image"
 import { GraduationCap } from "lucide-react"
 import Reveal from "./Reveal"
 
@@ -42,11 +45,13 @@ function Usp() {
         <Reveal>
           <div className="grid overflow-hidden border border-gray-100 shadow-sm lg:grid-cols-[34%_1fr] lg:grid-rows-[auto_1fr]">
             <div className="relative min-h-[280px] lg:row-span-2 lg:aspect-[3/4] lg:h-auto">
-              <img
+              <Image
                 key={tab.image}
                 src={tab.image}
                 alt={tab.label}
-                className="absolute inset-0 h-full w-full object-cover animate-fade-in-up"
+                fill
+                sizes="(min-width: 1024px) 34vw, 100vw"
+                className="object-cover animate-fade-in-up"
               />
               <div className="absolute inset-0 bg-black/10" />
               <div className="absolute inset-0 flex items-center justify-center">

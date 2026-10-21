@@ -19,121 +19,129 @@ export type CalendarSemester = {
 
 export const academicCalendar: CalendarSemester[] = [
   {
-    heading: "First Semester 2025 – 2026",
+    heading: "First Semester 2026 – 2027",
     months: [
-      {
-        month: "September 2025",
-        events: [
-          { date: "15th", iso: "2025-09-15", label: "Course Registration Begins (All Students – PG & UG)", tag: "Registration" },
-          { date: "25th", iso: "2025-09-25", label: "Senate Meeting" },
-          { date: "29th", iso: "2025-09-29", label: "Resumption for 2025-2026 Academic Session" },
-        ],
-      },
-      {
-        month: "October 2025",
-        events: [
-          { date: "6th", iso: "2025-10-06", label: "Lecture Begins (All Students – PG & UG)", tag: "Lectures" },
-          { date: "20th – 24th", iso: "2025-10-20", label: "Freshers Orientation Week" },
-          { date: "27th", iso: "2025-10-27", label: "Add and Drop Week / Late Registration Begins (All Students – PG & UG)", tag: "Registration" },
-        ],
-      },
-      {
-        month: "November 2025",
-        events: [
-          { date: "7th", iso: "2025-11-07", label: "Late Registration Ends (All Students – PG & UG)", tag: "Registration" },
-          { date: "13th", iso: "2025-11-13", label: "Senate Meeting" },
-          { date: "18th – 20th", iso: "2025-11-18", label: "Convocation Ceremony" },
-          { date: "24th", iso: "2025-11-24", label: "Midterm Examination Begins (PG & UG) (8th & 9th Week)", tag: "Exams" },
-        ],
-      },
-      {
-        month: "December 2025",
-        events: [
-          { date: "5th", iso: "2025-12-05", label: "Midterm Examination Begins (PG & UG) (8th & 9th Week)", tag: "Exams" },
-          { date: "14th", iso: "2025-12-14", label: "Deadline for C.A Upload (All Students – PG & UG)", tag: "Exams" },
-          { date: "19th", iso: "2025-12-19", label: "Examination Timetable to be Published (PG & UG)", tag: "Exams" },
-        ],
-      },
-      {
-        month: "January 2026",
-        events: [
-          { date: "5th", iso: "2026-01-05", label: "Resumption from End of Year Break" },
-          { date: "30th", iso: "2026-01-30", label: "Lecture Ends (All Students – PG & UG) – 15 weeks", tag: "Lectures" },
-        ],
-      },
-      {
-        month: "February 2026",
-        events: [
-          { date: "2nd – 13th", iso: "2026-02-02", label: "Final Examination (All Students – PG & UG)", tag: "Exams" },
-          { date: "16th", iso: "2026-02-16", label: "Semester Holiday (All Students – PG & UG): 2 weeks", tag: "Holiday" },
-        ],
-      },
-    ],
-  },
-  {
-    heading: "Second Semester 2025 – 2026",
-    months: [
-      {
-        month: "January 2026",
-        events: [{ date: "26th", iso: "2026-01-26", label: "Matriculation" }],
-      },
-      {
-        month: "February 2026",
-        events: [
-          { date: "16th", iso: "2026-02-16", label: "Course Registration Begins (PG & UG)", tag: "Registration" },
-          { date: "27th", iso: "2026-02-27", label: "Deadline for Final Examination Upload (PG & UG)", tag: "Exams" },
-        ],
-      },
-      {
-        month: "March 2026",
-        events: [
-          { date: "2nd", iso: "2026-03-02", label: "Lecture Begins", tag: "Lectures" },
-          { date: "16th – 20th", iso: "2026-03-16", label: "Add and Drop / Late Registration Week (PG & UG)", tag: "Registration" },
-          { date: "19th", iso: "2026-03-19", label: "Deadline for Deferment (PG & UG)", tag: "Registration" },
-        ],
-      },
-      {
-        month: "April 2026",
-        events: [{ date: "13th – 24th", iso: "2026-04-13", label: "Midterm Examination (7th & 8th Week)", tag: "Exams" }],
-      },
-      {
-        month: "May 2026",
-        events: [
-          { date: "8th", iso: "2026-05-08", label: "Deadline for C.A Upload", tag: "Exams" },
-          { date: "11th", iso: "2026-05-11", label: "Examination Timetable to be Published (PG & UG)", tag: "Exams" },
-        ],
-      },
-      {
-        month: "June 2026",
-        events: [
-          { date: "11th", iso: "2026-06-11", label: "Lecture Ends (All Students – PG & UG) – 15 weeks", tag: "Lectures" },
-          { date: "15th – 26th", iso: "2026-06-15", label: "Final Examinations (PG & UG)", tag: "Exams" },
-          { date: "28th", iso: "2026-06-28", label: "Summer Holiday Begins (PG & UG)", tag: "Holiday" },
-          { date: "29th", iso: "2026-06-29", label: "Second Intake – Second Semester / LVS Registration Begins", tag: "Registration" },
-        ],
-      },
-      {
-        month: "July 2026",
-        events: [
-          { date: "10th", iso: "2026-07-10", label: "Deadline for Final Examination Upload (PG & UG)", tag: "Exams" },
-          { date: "13th", iso: "2026-07-13", label: "Second Intake Lectures Begins", tag: "Lectures" },
-          { date: "17th", iso: "2026-07-17", label: "Second Intake – Second Semester / LVS Registration Ends", tag: "Registration" },
-          { date: "20th", iso: "2026-07-20", label: "Long Vacation School (LVS) Lecture Begins", tag: "Lectures" },
-          { date: "23rd", iso: "2026-07-23", label: "Senate Meeting" },
-        ],
-      },
       {
         month: "September 2026",
         events: [
-          { date: "11th", iso: "2026-09-11", label: "Long Vacation School (LVS) Ends", tag: "Lectures" },
-          { date: "14th – 18th", iso: "2026-09-14", label: "Long Vacation School (LVS) Examination (1 Week)", tag: "Exams" },
+          { date: "14th", iso: "2026-09-14", label: "First Semester Course Registration Begins for 2026-2027 Academic Session (All Students – PG & UG)", tag: "Registration" },
+          { date: "22nd", iso: "2026-09-22", label: "Committee of Provost, Deans and Directors Meeting (COPDD)" },
+          { date: "24th", iso: "2026-09-24", label: "Senate Meeting" },
+          { date: "28th", iso: "2026-09-28", label: "Resumption for 2026-2027 Academic Session" },
         ],
       },
       {
         month: "October 2026",
         events: [
-          { date: "9th", iso: "2026-10-09", label: "Second Intake Lectures Ends – 15 Weeks", tag: "Lectures" },
-          { date: "12th – 16th", iso: "2026-10-12", label: "Second Intake Examination (1 Week)", tag: "Exams" },
+          { date: "5th", iso: "2026-10-05", label: "First Semester Lectures Begin (All Students – PG & UG)", tag: "Lectures" },
+          { date: "19th – 23rd", iso: "2026-10-19", label: "Freshers Orientation Week" },
+          { date: "26th", iso: "2026-10-26", label: "Add and Drop Week / Late Registration Begins (All Students – PG & UG)", tag: "Registration" },
+        ],
+      },
+      {
+        month: "November 2026",
+        events: [
+          { date: "6th", iso: "2026-11-06", label: "Late Registration Ends (All Students – PG & UG)", tag: "Registration" },
+          { date: "10th", iso: "2026-11-10", label: "Committee of Provost, Deans and Directors Meeting (COPDD)" },
+          { date: "12th", iso: "2026-11-12", label: "Senate Meeting" },
+          { date: "17th – 19th", iso: "2026-11-17", label: "Convocation Ceremony" },
+          { date: "23rd", iso: "2026-11-23", label: "Midterm Examination Begins (PG & UG)", tag: "Exams" },
+        ],
+      },
+      {
+        month: "December 2026",
+        events: [
+          { date: "4th", iso: "2026-12-04", label: "Midterm Examination Ends (PG & UG)", tag: "Exams" },
+          { date: "18th", iso: "2026-12-18", label: "Deadline for Upload of Midterm Examination Grades (All Students – PG & UG)", tag: "Exams" },
+          { date: "18th", iso: "2026-12-18", label: "Examination Timetable to be Published (PG & UG)", tag: "Exams" },
+          { date: "19th", iso: "2026-12-19", label: "End of Year Break", tag: "Holiday" },
+        ],
+      },
+      {
+        month: "January 2027",
+        events: [
+          { date: "18th", iso: "2027-01-18", label: "Resumption from End of Year Break" },
+          { date: "19th", iso: "2027-01-19", label: "Committee of Provost, Deans and Directors Meeting (COPDD)" },
+          { date: "26th", iso: "2027-01-26", label: "Matriculation for 2026-2027 Intake" },
+        ],
+      },
+      {
+        month: "February 2027",
+        events: [
+          { date: "5th", iso: "2027-02-05", label: "First Semester Lectures End (All Students – PG & UG)", tag: "Lectures" },
+          { date: "8th – 19th", iso: "2027-02-08", label: "First Semester Final Examinations (All Students – PG & UG)", tag: "Exams" },
+          { date: "22nd Feb – 5th Mar", iso: "2027-02-22", label: "Mid Semester Break (All Students – PG & UG)", tag: "Holiday" },
+        ],
+      },
+    ],
+  },
+  {
+    heading: "Second Semester 2026 – 2027",
+    months: [
+      {
+        month: "February 2027",
+        events: [
+          { date: "22nd", iso: "2027-02-22", label: "Second Semester Course Registration Begins (PG & UG)", tag: "Registration" },
+        ],
+      },
+      {
+        month: "March 2027",
+        events: [
+          { date: "8th", iso: "2027-03-08", label: "Second Semester Lecture Begins", tag: "Lectures" },
+          { date: "12th", iso: "2027-03-12", label: "Deadline for First Semester Final Examination Grade Upload (PG & UG)", tag: "Exams" },
+          { date: "22nd – 26th", iso: "2027-03-22", label: "Add and Drop / Late Registration Week (PG & UG)", tag: "Registration" },
+          { date: "26th", iso: "2027-03-26", label: "Deadline for Deferment (PG & UG)", tag: "Registration" },
+        ],
+      },
+      {
+        month: "April 2027",
+        events: [
+          { date: "26th Apr – 7th May", iso: "2027-04-26", label: "Second Semester Midterm Examinations", tag: "Exams" },
+        ],
+      },
+      {
+        month: "May 2027",
+        events: [
+          { date: "21st", iso: "2027-05-21", label: "Deadline for Upload of Midterm Examination Grades (All Students – PG & UG)", tag: "Exams" },
+          { date: "24th", iso: "2027-05-24", label: "Examination Timetable to be Published (PG & UG)", tag: "Exams" },
+        ],
+      },
+      {
+        month: "June 2027",
+        events: [
+          { date: "25th", iso: "2027-06-25", label: "Second Semester Lectures End (All Students – PG & UG)", tag: "Lectures" },
+          { date: "28th Jun – 9th Jul", iso: "2027-06-28", label: "Second Semester Final Examinations (PG & UG)", tag: "Exams" },
+        ],
+      },
+      {
+        month: "July 2027",
+        events: [
+          { date: "9th", iso: "2027-07-09", label: "Second Semester Final Examinations End (PG & UG)", tag: "Exams" },
+          { date: "12th", iso: "2027-07-12", label: "Summer Holiday Begins (PG & UG)", tag: "Holiday" },
+          { date: "12th", iso: "2027-07-12", label: "Postgraduate (Second Intake) Second Semester / Long Vacation Studies (LVS) Registration Begins", tag: "Registration" },
+          { date: "23rd", iso: "2027-07-23", label: "Deadline for Final Examination Upload (PG & UG)", tag: "Exams" },
+          { date: "26th", iso: "2027-07-26", label: "Postgraduate Second Intake Lecture Begins", tag: "Lectures" },
+          { date: "26th", iso: "2027-07-26", label: "LVS Lectures Begin", tag: "Lectures" },
+          { date: "27th", iso: "2027-07-27", label: "Committee of Provost, Deans and Directors Meeting (COPDD)" },
+          { date: "29th", iso: "2027-07-29", label: "Senate Meeting" },
+          { date: "30th", iso: "2027-07-30", label: "Postgraduate Second Intake / LVS Registration Ends", tag: "Registration" },
+        ],
+      },
+      {
+        month: "September 2027",
+        events: [
+          { date: "24th", iso: "2027-09-24", label: "LVS Lectures End", tag: "Lectures" },
+          // Source document says "27th - (1st August)" — August is before September/July, which
+          // can't be right given LVS lectures run July 26 - Sept 24. Best guess is "October" was
+          // misread/mistyped as "August"; using 27th Sep - 1st Oct until the university confirms.
+          { date: "27th Sep – 1st Oct", iso: "2027-09-27", label: "LVS Examinations (date range unconfirmed — source document lists \"1st August\", likely a typo for \"1st October\")", tag: "Exams" },
+        ],
+      },
+      {
+        month: "October 2027",
+        events: [
+          { date: "22nd", iso: "2027-10-22", label: "Postgraduate Second Intake Lectures End", tag: "Lectures" },
+          { date: "25th – 29th", iso: "2027-10-25", label: "Postgraduate Second Intake Examinations", tag: "Exams" },
         ],
       },
     ],

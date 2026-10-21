@@ -1,4 +1,7 @@
+"use client"
+
 import { useEffect, useRef } from "react"
+import Image from "next/image"
 import { X } from "lucide-react"
 
 const altText =
@@ -41,12 +44,12 @@ function AuditComplianceModal({ open, onClose }: { open: boolean; onClose: () =>
           >
             <X className="h-5 w-5" strokeWidth={2.5} />
           </button>
-          <img
+          <Image
             src="/audit-compliance-trustmark.avif"
             alt={altText}
             width={1809}
             height={2560}
-            className="block max-h-[75vh] w-auto max-w-full"
+            className="block h-auto max-h-[75vh] w-auto max-w-full"
           />
         </div>
         <a

@@ -1,5 +1,8 @@
+"use client"
+
 import { useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
+import Image from "next/image"
+import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import Reveal from "./Reveal"
 
@@ -12,15 +15,15 @@ const programs = [
     to: "/sps",
   },
   {
-    image: "/students-group.webp",
-    imagePosition: "center 15%",
+    image: "/sfjigh8hgngjg.avif",
     title: "Undergraduate",
     description:
       "Join our lively community of undergraduate students and choose from more than 50 degree options.",
     to: "/undergraduate",
   },
   {
-    image: "/kdqcmr9vp8hfuf.jpg",
+    image: "/postgraduate-graduation.jpg",
+    imagePosition: "center 20%",
     title: "Postgraduate",
     description:
       "Advance your academic and professional journey through specialized postgraduate programmes.",
@@ -155,12 +158,14 @@ function Programs() {
                 data-card
                 className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="h-52 overflow-hidden">
-                  <img
+                <div className="relative h-52 overflow-hidden">
+                  <Image
                     src={program.image}
                     alt={program.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     style={{ objectPosition: program.imagePosition }}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
@@ -182,7 +187,7 @@ function Programs() {
                     </a>
                   ) : program.to ? (
                     <Link
-                      to={program.to}
+                      href={program.to}
                       className="group/link inline-flex items-center gap-1.5 self-start text-base font-bold text-navy transition-colors hover:text-gold"
                     >
                       Explore

@@ -1,9 +1,19 @@
-import { undergraduatePrograms, postgraduatePrograms } from "./courses"
+import type { CourseSummary } from "@/lib/wordpress"
 
 export type SearchEntry = {
   label: string
   to: string
   group: "Page" | "Undergraduate" | "Postgraduate"
+}
+
+export function courseSearchEntries(courses: CourseSummary[]): SearchEntry[] {
+  return courses
+    .map((c) => ({
+      label: c.title,
+      to: `/courses/${c.slug}`,
+      group: c.level === "undergraduate" ? ("Undergraduate" as const) : ("Postgraduate" as const),
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label))
 }
 
 const rawPages: SearchEntry[] = [
@@ -39,21 +49,7 @@ const rawPages: SearchEntry[] = [
   { label: "Vice Chancellor's Welcome Message", to: "/vice-chancellors-welcome", group: "Page" },
   { label: "Virtual Tour", to: "/virtual-tour", group: "Page" },
 ]
+
 export const sitePages: SearchEntry[] = [...rawPages].sort((a, b) =>
   a.label.localeCompare(b.label),
 )
-
-export const courseEntries: SearchEntry[] = [
-  ...undergraduatePrograms.map((c) => ({
-    label: c.name,
-    to: `/courses/${c.slug}`,
-    group: "Undergraduate" as const,
-  })),
-  ...postgraduatePrograms.map((c) => ({
-    label: c.name,
-    to: `/courses/${c.slug}`,
-    group: "Postgraduate" as const,
-  })),
-].sort((a, b) => a.label.localeCompare(b.label))
-
-export const searchIndex: SearchEntry[] = [...sitePages, ...courseEntries]

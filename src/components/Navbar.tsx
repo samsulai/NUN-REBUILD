@@ -1,9 +1,13 @@
+"use client"
+
 import { useState } from "react"
-import { useLocation } from "react-router-dom"
-import { Link } from "react-router-dom"
+import Image from "next/image"
+import { usePathname } from "next/navigation"
+import Link from "next/link"
 import { ChevronDown, Search, X } from "lucide-react"
 import logo from "../assets/nile-logo.svg"
 import SearchOverlay from "./SearchOverlay"
+import type { SearchEntry } from "@/data/siteIndex"
 
 type DropdownLink = { label: string; to: string | null }
 type DropdownColumn = { heading: string; links: DropdownLink[] }
@@ -18,7 +22,7 @@ const aboutDropdown: Dropdown = {
         { label: "Vice Chancellor's Welcome Message", to: "/vice-chancellors-welcome" },
         { label: "Organisation Chart", to: "/organisation-chart" },
         { label: "Principal Officers", to: "/principal-officers" },
-        { label: "Faculty Staff", to: null },
+        { label: "Faculty Staff", to: "/staff" },
         { label: "Employability Report", to: "/employability-report" },
         { label: "Honoris Impact Report 2025", to: "/honoris-impact-report" },
       ],
@@ -28,7 +32,6 @@ const aboutDropdown: Dropdown = {
       links: [
         { label: "Honoris United Universities", to: null },
         { label: "Alumni", to: "/alumni" },
-        { label: "Nile Community", to: null },
         { label: "TEDx Nile University", to: "https://tedx.nileuniversity.edu.ng/" },
         { label: "Our Partners", to: "/partners" },
         { label: "Virtual Tour", to: "/virtual-tour" },
@@ -109,8 +112,8 @@ const spsLinks: NavLink[] = [
   { label: "Sign In", to: null },
 ]
 
-function Navbar() {
-  const { pathname } = useLocation()
+function Navbar({ searchIndex }: { searchIndex: SearchEntry[] }) {
+  const pathname = usePathname()
   const isSps = pathname.startsWith("/sps")
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
@@ -121,12 +124,24 @@ function Navbar() {
       onMouseLeave={() => setOpenMenu(null)}
     >
       <div className="flex items-center justify-between px-6 py-4 md:px-10">
-        <Link to="/">
-          <img
-            src={isSps ? "/sps-logo.avif" : logo}
-            alt={isSps ? "Nile University School of Preliminary Studies" : "Nile University of Nigeria"}
-            className={isSps ? "h-10 w-auto md:h-12" : "h-10 w-auto md:h-11"}
-          />
+        <Link href="/">
+          {isSps ? (
+            <Image
+              src="/sps-logo.avif"
+              alt="Nile University School of Preliminary Studies"
+              width={700}
+              height={200}
+              className="h-10 w-auto md:h-12"
+              priority
+            />
+          ) : (
+            <Image
+              src={logo}
+              alt="Nile University of Nigeria"
+              className="h-10 w-auto md:h-11"
+              priority
+            />
+          )}
         </Link>
 
         <nav className="hidden items-center gap-6 text-[20px] font-medium not-italic leading-[30px] text-gray-600 lg:flex">
@@ -138,7 +153,7 @@ function Navbar() {
             >
               {link.to ? (
                 <Link
-                  to={link.to}
+                  href={link.to}
                   className="relative flex items-center gap-1 py-1 transition-colors hover:text-navy after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {link.label}
@@ -182,7 +197,7 @@ function Navbar() {
                                     {item.label}
                                   </a>
                                 ) : item.to ? (
-                                  <Link to={item.to} className={linkClass}>
+                                  <Link href={item.to} className={linkClass}>
                                     {item.label}
                                   </Link>
                                 ) : (
@@ -245,7 +260,7 @@ function Navbar() {
                     return (
                       <li key={item.label}>
                         {item.to ? (
-                          <Link to={item.to} className={linkClass}>
+                          <Link href={item.to} className={linkClass}>
                             {item.label}
                           </Link>
                         ) : (
@@ -263,7 +278,7 @@ function Navbar() {
         </div>
       </div>
 
-      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} searchIndex={searchIndex} />
     </header>
   )
 }

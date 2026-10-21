@@ -1,27 +1,42 @@
+"use client"
+
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import Image from "next/image"
+import Link from "next/link"
+
+type OverlayLevel = "strong" | "default" | "light" | "subtle"
+
+const overlayClasses: Record<OverlayLevel, { base: string; gradient: string }> = {
+  strong: { base: "bg-black/25", gradient: "from-black/55 via-black/25" },
+  default: { base: "bg-black/15", gradient: "from-black/40 via-black/15" },
+  light: { base: "bg-black/8", gradient: "from-black/25 via-black/8" },
+  subtle: { base: "bg-black/11", gradient: "from-black/30 via-black/11" },
+}
 
 const slides = [
+  {
+    image: "/kdqcmr9vp8hfuf.jpg",
+    title: "Join a legacy of excellence",
+    description:
+      "Our graduates go on to lead and innovate across industries in Nigeria and beyond.",
+    cta: { label: "Read the Employability Report", to: "/employability-report" },
+  },
   {
     image: "/campus-aerial.webp",
     title: "Take a virtual tour of our campus",
     description:
       "Explore our facilities, faculties, and campus life from anywhere in the world, before you visit in person.",
     cta: { label: "Take the Virtual Tour", to: "/virtual-tour" },
+    overlay: "strong" as OverlayLevel,
   },
   {
-    image: "/sfjigh8hgngjg.avif",
-    title: "Shape your future at Nile University",
-    description:
-      "A leading centre of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
-    cta: { label: "Apply Now", href: "#" },
-  },
-  {
-    image: "/hero-undergrad-group.webp",
+    image: "/students-group.webp",
     title: "Find the right programme for you",
     description:
       "Explore undergraduate and postgraduate degrees across engineering, business, sciences, and the humanities.",
     cta: { label: "Explore Programmes", to: "/undergraduate" },
+    imagePosition: "center 20%",
+    overlay: "light" as OverlayLevel,
   },
   {
     image: "/hero-campus-students.webp",
@@ -29,6 +44,7 @@ const slides = [
     description:
       "Our admissions team is ready to walk you through programmes, requirements, and next steps.",
     cta: { label: "Contact Admissions", to: "/contact" },
+    overlay: "subtle" as OverlayLevel,
   },
 ]
 
@@ -46,14 +62,22 @@ function Hero() {
 
   return (
     <section className="relative flex h-[480px] items-center overflow-hidden bg-navy px-8 md:h-[560px] md:px-16">
-      <img
+      <Image
         key={slide.image}
         src={slide.image}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover animate-kenburns"
+        fill
+        sizes="100vw"
+        priority
+        style={{ objectPosition: slide.imagePosition }}
+        className="object-cover animate-kenburns"
       />
-      <div className="absolute inset-0 bg-black/25" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
+      <div className={`absolute inset-0 ${overlayClasses[slide.overlay ?? "default"].base}`} />
+      <div
+        className={`absolute inset-0 bg-gradient-to-r to-transparent ${
+          overlayClasses[slide.overlay ?? "default"].gradient
+        }`}
+      />
 
       <button
         onClick={prev}
@@ -96,21 +120,12 @@ function Hero() {
         <p className="mb-6 text-[19px] leading-[30px] text-gray-200">
           {slide.description}
         </p>
-        {slide.cta.to ? (
-          <Link
-            to={slide.cta.to}
-            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-[#eef2fb]"
-          >
-            {slide.cta.label}
-          </Link>
-        ) : (
-          <a
-            href={slide.cta.href}
-            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-[#eef2fb]"
-          >
-            {slide.cta.label}
-          </a>
-        )}
+        <Link
+          href={slide.cta.to}
+          className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-[#eef2fb]"
+        >
+          {slide.cta.label}
+        </Link>
       </div>
 
       <div className="absolute bottom-6 left-8 z-10 flex items-center gap-3 pl-12 md:left-16 md:pl-10">

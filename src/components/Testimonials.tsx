@@ -1,4 +1,7 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import { Play, X } from "lucide-react"
 import Reveal from "./Reveal"
 import { testimonials, toEmbedUrl, type Testimonial } from "../data/testimonials"
@@ -112,10 +115,12 @@ function Testimonials() {
                 onClick={() => setPlaying(t)}
                 className="group relative aspect-[4/3] w-[85%] shrink-0 snap-start overflow-hidden rounded-xl sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
-                <img
+                <Image
                   src={t.poster}
                   alt={t.name}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 85vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                 <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-navy shadow-lg transition-transform duration-300 group-hover:scale-110">

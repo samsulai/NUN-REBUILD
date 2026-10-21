@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://nileuniversity.edu.ng/sitemap.xml

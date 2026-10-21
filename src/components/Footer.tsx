@@ -1,5 +1,8 @@
+"use client"
+
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import Image from "next/image"
+import Link from "next/link"
 import { Mail, MessageCircle, Phone } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa6"
 import AuditComplianceModal from "./AuditComplianceModal"
@@ -55,9 +58,11 @@ function Footer() {
     <footer className="bg-navy">
       <div className="mx-auto grid max-w-screen-2xl gap-10 px-6 py-14 md:px-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
-          <img
+          <Image
             src="/footer-logo.png"
             alt="Nile University of Nigeria"
+            width={700}
+            height={200}
             className="mb-4 h-14 w-auto"
           />
           <p className="mb-4 not-italic font-normal text-[16px] leading-[20px] text-white">
@@ -120,7 +125,7 @@ function Footer() {
                         {link.label}
                       </a>
                     ) : link.to ? (
-                      <Link to={link.to} className={linkClass}>
+                      <Link href={link.to} className={linkClass}>
                         {link.label}
                       </Link>
                     ) : (

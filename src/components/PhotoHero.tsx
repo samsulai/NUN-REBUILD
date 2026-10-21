@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Reveal from "./Reveal"
 
 function PhotoHero({
@@ -15,7 +16,7 @@ function PhotoHero({
     <div
       className={`relative flex ${height} items-center justify-center overflow-hidden bg-navy px-6 text-center`}
     >
-      <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      <Image src={image} alt="" fill sizes="100vw" priority className="object-cover" />
       <div className="absolute inset-0 bg-navy/70" />
       <Reveal>
         <div className="relative">

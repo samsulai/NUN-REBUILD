@@ -1,19 +1,16 @@
-import { Link } from "react-router-dom"
+import Image from "next/image"
+import Link from "next/link"
 import Reveal from "./Reveal"
 
 function AdmissionsCta() {
   return (
     <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden px-6 py-24 text-center md:min-h-[600px] md:px-10">
-      <img
-        src="/Nile-University-Boys-Hostel.avif"
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <Image src="/Nile-University-Boys-Hostel.avif" alt="" fill sizes="100vw" priority className="object-cover" />
       <div className="absolute inset-0 bg-black/66" />
 
       <Reveal className="relative z-10 mx-auto max-w-2xl">
         <Link
-          to="/virtual-tour"
+          href="/virtual-tour"
           aria-label="Take the video tour"
           className="group relative mx-auto mb-8 flex h-20 w-20 items-center justify-center"
         >

@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Reveal from "./Reveal"
 
 const items = [
@@ -37,10 +38,12 @@ function News() {
           <Reveal key={item.headline} delay={i * 100}>
             <div className="group">
               <div className="relative mb-3 h-64 overflow-hidden rounded-lg">
-                <img
+                <Image
                   src={item.image}
                   alt=""
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <span className="absolute left-2 top-2 rounded bg-navy px-2 py-0.5 text-xs font-medium text-white">
                   {item.tag}

@@ -1,12 +1,15 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react"
-import { useLocation } from "react-router-dom"
+import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { X } from "lucide-react"
 
 const altText =
   "Disclaimer. Dear members of the public, please be advised that: 1. The application process for the academic programmes and hostels at Nile University of Nigeria is completely free. We do not charge for application form or any part of our application process. Only Applicants applying for the EMBA Program will be required to pay an application fee. 2. We do not have any authorized agents to issue or sell admission forms, or to collect tuition, hostel or other payments on our behalf. All payments including admission and hostel are conducted online via the official university portals. 3. Nile University of Nigeria is not liable for any financial or other loss arising from dealings with unauthorised persons or channels. www.nileuniversity.edu.ng"
 
 function DisclaimerModal() {
-  const { pathname } = useLocation()
+  const pathname = usePathname()
   const eligiblePage = pathname === "/" || pathname.startsWith("/sps")
   const [open, setOpen] = useState(false)
   const closeRef = useRef<HTMLButtonElement>(null)
@@ -56,12 +59,13 @@ function DisclaimerModal() {
           >
             <X className="h-5 w-5" strokeWidth={2.5} />
           </button>
-          <img
+          <Image
             src="/disclaimer.webp"
             alt={altText}
             width={1600}
             height={2000}
-            className="block max-h-[55vh] w-auto max-w-full"
+            priority
+            className="block h-auto max-h-[55vh] w-auto max-w-full"
           />
         </div>
       </div>
